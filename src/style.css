@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+    background-image: url("../images/Mikael-Gustafsson.jpg");
+    /*background: #999900;*/
+    font-family: 'Open Sans', sans-serif;
+}
+
+#inputsearch{
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width:575px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+#searchbutton{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.shortcut{
+    padding: 20px;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+}
+
+.shortcutbox{
+    background: white;
+    border-color: coral;
+    width:200px;
+    height: 200px;
+    border-radius: 15px
+}

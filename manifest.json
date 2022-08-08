@@ -1,0 +1,12 @@
+{
+
+  "manifest_version": 3,
+  "name": "Starting-Page2",
+  "description": "Configureable Startingpage",
+  "version": "1.0",
+
+  "chrome_url_overrides" : {
+    "newtab" : "src/startPage.html"
+  }
+
+}
