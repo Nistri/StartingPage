@@ -1,27 +1,69 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Momentum</title> 
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="grid.css">
+        <link rel="stylesheet" href="/src/fontawesome/css/all.min.css">
     </head>
     <body>
 
-    <center>
-        <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
-        <button id="searchbutton" type="submit">Suchen</button>
-    </center>
+    <div id="settings">
 
-    <div class="Shortcutboxcollection">
-        <div class="shortcutbox">
-            <center> <b>Popular:</b> </center>
-            <div>
-                <button class="shortcut" image>+</button>
-            </div>
+    </div>
+    <div id="shortcutboxinput" style="visibility: hidden;">
+        <div>
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Shortcut Name">
+        </div>
+        <div>
+          <label>Link</label>
+          <input type="url" id="link" placeholder="www.example.com">
+        </div>
+        <div>
+        <button id="cancel">
+            Cancel
+        </button>
+        <button id="create">
+            Create
+        </button>
         </div>
     </div>
+
+    <div id="shortcutboxchange">
+
+    </div>
+
+    <div id="wrapper">
+
+        <div id="timewrapper">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+
+        <div id="searchwrapper">
+            <div id="searchinput">
+                <button id="searchbutton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
+            </div>  
+        </div>
+
+        <div id="shortcutboxwrapper">
+                <center class="shortcutbox">
+                    <div class="shortcutlinkwrapper">
+                        <button class="shortcutlink" id="add">
+                            <div class="shortcuticon">+</div>
+                        </button>
+                    </div>
+                    <div class="shortcutunder">Add Shortcut</div>
+                </center>
+            </div>
     
-    <script src="script.js"></script>
+    </div>
     </body>
+    <script src="script.js"></script>
 </html>
 
 
