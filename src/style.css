@@ -1,39 +1,243 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+*{   
+    outline: none;
+}
+
+
+/* Change the white to any color */
+#inputsearch:-webkit-autofill{
+    -webkit-background-clip: text;
+}
+
 
 body{
+    /*
     background-image: url("../images/Mikael-Gustafsson.jpg");
-    /*background: #999900;*/
-    font-family: 'Open Sans', sans-serif;
+    background: #D53131;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    background: linear-gradient(90deg, #1CB5E0 0%, #182848 100%);
+    */
+    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+}
+
+
+/*  Timefield  */
+#time{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+#date{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+
+/*  Searchfield  */
+#searchwrapper{
+    background: rgba(243, 226, 226, 0.7);
+    border-radius: 10px;
+    width: 100%;
+}
+
+#searchinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: inherit;
 }
 
 #inputsearch{
-    margin: auto;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    width:575px;
-    border-top-left-radius: 60px;
-    border-bottom-left-radius: 60px;
+    display: table-cell;
+    font-size: 25px;
+    width: 90%;
+    color: #000000;
+    border: 0;
+    background-color: transparent;
 }
+
+
+
+
+
+/*  Search-icon  */
 #searchbutton{
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    border-top-right-radius: 60px;
-    border-bottom-right-radius: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
 }
 
-.shortcut{
-    padding: 20px;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 50%;
-}
 
+/*  Shortcut  */
 .shortcutbox{
-    background: white;
-    border-color: coral;
-    width:200px;
-    height: 200px;
-    border-radius: 15px
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-style: none;
+    width: 8em;
+    height: 8em;
 }
+
+
+
+.shortcutbox:hover, .shortcutbox:focus{
+    background: rgba(243, 226, 226, 0.7);
+}
+
+
+.shortcutlinkwrapper{
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    border-style: none;
+    background-color: white;
+    text-decoration: none;
+}
+
+.penbutton{
+    visibility: hidden;
+    transform: translate(22px, -70px);
+    border: none;
+    border-radius: 25px;
+    background-color: transparent;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+}
+
+.shortcutbox > * .penbutton:hover{
+    visibility: visible;
+}
+
+.shortcutbox > * > * > i{
+    color: transparent;
+    /*
+    color: rgba(23, 22, 26, 0.8) !important;
+     color: black !important; 
+     */
+}
+
+.shortcutbox:hover > * > * > i{
+    color: #252525 !important;
+    visibility: visible;
+    /*
+    color: rgba(23, 22, 26, 0.8) !important;
+     color: black !important; 
+     */
+}
+
+.penbutton:hover{
+    background-color: rgba(215,212,220,1);
+}
+
+.shortcutlink{
+    border-radius: 10px;
+    border-style: none;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+
+.shortcuticon{
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.shortcutunder{
+    padding-top: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+/*  Shortcut Input  */
+.shortcutinputdiv{
+    position: absolute;
+    top: 311px;
+    left: 50%;
+    margin: 0 0 0 -200px;
+    width: 380px;
+    height: 300px;
+
+    border-radius: 10px;
+    border-style: none;
+    background-color: #919195;
+
+    display:grid;
+    grid-template-rows: 110px 110px auto;
+  }
+  
+.shortcutinputdiv > div{
+    place-self: center;
+}
+  
+.shortcutinputdiv > * > label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.shortcutinputdiv > * > input{
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.shortcutinputdiv > * > button{
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+}
+
+#cancelinput{
+    background-color: #555;
+    width: 115px;
+}
+
+#createinput{
+    background-color: #1a82f7;
+    width: 115px;
+}
+
+#cancelchange{
+    background-color: #555;
+}
+
+#deletechange{
+    background-color: red;
+}
+
+#changechange{
+background-color: #1a82f7;
+}
+
+[draggable=true] {
+    cursor: move;
+}  

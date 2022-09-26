@@ -7,11 +7,7 @@
         <link rel="stylesheet" href="/src/fontawesome/css/all.min.css">
     </head>
     <body>
-
-    <div id="settings">
-
-    </div>
-    <div id="shortcutboxinput" style="visibility: hidden;">
+    <div class="shortcutinputdiv" id="shortcutboxinput" style="visibility: hidden;">
         <div>
           <label>Name</label>
           <input type="text" id="name" placeholder="Shortcut Name">
@@ -21,17 +17,35 @@
           <input type="url" id="link" placeholder="www.example.com">
         </div>
         <div>
-        <button id="cancel">
+        <button id="cancelinput">
             Cancel
         </button>
-        <button id="create">
+        <button id="createinput">
             Create
         </button>
         </div>
     </div>
 
-    <div id="shortcutboxchange">
-
+    <div class="shortcutinputdiv" id="shortcutboxchange" style="visibility: hidden;">
+        <div>
+            <label>Name</label>
+            <input type="text" id="namechange" placeholder="Shortcut Name">
+        </div>
+        <div>
+            <label>Link</label>
+            <input type="url" id="linkchange" placeholder="www.example.com">
+        </div>
+        <div>
+            <button id="cancelchange">
+                Cancel
+            </button>
+            <button id="changechange">
+                Change
+            </button>
+            <button id="deletechange">
+                Delete
+            </button>
+        </div>
     </div>
 
     <div id="wrapper">

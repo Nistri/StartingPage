@@ -1,0 +1,27 @@
+#wrapper{
+    padding-top: 10%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+    grid-template-rows: 125px 60px auto;
+    gap: 50px;
+    grid-template-areas:
+    ". . . time time time . . ." 
+    ". search search search search search search search ."
+    ". . short short short short short . ."; 
+}
+
+#timewrapper{
+    grid-area: time;
+}
+
+#searchwrapper{
+    grid-area: search;
+}
+
+#shortcutboxwrapper{
+    grid-area: short;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 8em);
+    justify-content: space-around;
+    gap: 10px;
+}

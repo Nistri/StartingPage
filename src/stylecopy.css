@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+    /*background-image: url("../images/Mikael-Gustafsson.jpg");*/
+    background: #999900;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    gap: 10px;
+}
+
+/* Search Style*/
+.searchcontainer{
+    grid-row:1 / 1;
+    grid-column:2 / 5;
+    text-align: center;
+}
+
+
+#inputsearch{
+    margin: auto;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    width: 50%;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+#searchbutton{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+/*Input Shortcut*/
+#formcontainer{
+    display: none;
+    background-color: white;
+    width: 30%;
+    height: 30%;
+}
+
+
+
+/* Change Style*/
+.changecontainer{
+    text-align: center;
+    grid-row:1 / 1;
+    grid-column:5 / 5;
+}
+
+#changebutton{
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border-radius: 60px;
+}
+
+/* Shortcut Style*/
+#shortcutboxcollectioncontainer{
+    grid-column:2 / 6;
+    grid-row:2 / 2; 
+}
+
+
+.shortcutbox{
+    display: grid;
+    grid-template-rows: 10% 90%;
+    background: whitesmoke;
+    min-height: 200px;
+    width: 340px;
+    border-radius: 15px;
+    overflow: hidden;
+    gap: 10px;
+    padding: 5px;
+    /*
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: whitesmoke;
+    */
+}
+
+
+/* Shortcut Heading*/
+.shortcutheading{
+    grid-row:1 / 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.shortcutheading .AddTileButton{
+    border-radius: 15px;
+}
+
+
+/* Shortcut Boxlinks*/
+.shortcutboxlinks{
+    grid-row:2 / 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 7px;
+    gap: 10px;
+}
+.shortcutwrapper{
+    display: flex;
+    flex-direction: column;
+    border-style: inset;
+    border-radius: 15px;
+    padding: 10px;
+    height: 50px;
+    width: 75px;
+    text-decoration: none;
+}
+.shortcutwrapper:hover, .shortcutwrapper:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em blue;
+    transform: translateY(-0.25em);
+}
+.shortcutbotton{
+    padding: 12px;
+    margin: 6px 6px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.shortcutundertext{
+    text-align: center;
+    text-decoration: none;
+}

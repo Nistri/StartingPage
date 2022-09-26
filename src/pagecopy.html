@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Momentum</title> 
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="grid.css">
+    </head>
+    <body>
+    
+    <div class="forminputshotcut" id="formcontainer">
+        
+        <h2>Shortcut Input</h2>
+        <label for="url">
+            <strong>URL</strong>
+        </label>
+        <input type="text" id="url" placeholder="url" name="url" required>
+        <label for="name">
+            <strong>Name</strong>
+        </label>
+        <input type="text" id="name" placeholder="name" name="name" required>
+        <button id="btnaddtile">Add Tile</button>
+        <button id="btncancel">Close</button>
+
+    </div>
+
+    <div class="wrapper">
+        <div class="searchcontainer">
+            <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
+            <button id="searchbutton">Search</button>
+        </div>
+
+        <div class="changecontainer">
+            <button id="changebutton">Change</button>
+        </div>
+
+        <div id="shortcutboxcollectioncontainer">
+            <div class="shortcutbox" id="popular">
+                <div class="shortcutheading">
+                    <h3 class="heading">Popular</h3>
+                    <button id="popularatb" class="AddTileButton">Change</button>
+                </div>
+                <div class="shortcutboxlinks"></div>
+            </div>
+
+        </div>
+    </div>    
+    
+    <script src="script.js"></script>
+    </body>
+</html>
+
+
+
+
+<!--
+<input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
+<button class="button" type="submit">Suchen</button>
+-->
