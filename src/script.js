@@ -8,7 +8,7 @@ class shortcut{
 
 
 setShortcutboxes();
-//Test
+//Test 
 //chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
 let arrshortcut = [];
