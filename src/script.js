@@ -8,7 +8,6 @@ class shortcut{
 
 
 setShortcutboxes();
-
 //Test
 //chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
@@ -92,9 +91,16 @@ function createShortcutbox(){
     let link = document.getElementById("link").value;
     if(name.trim().length !== 0 && link.trim().length !== 0){
         chrome.storage.local.get(['shortcutcollection'], function(result) {
-            arrshortcut = result.shortcutcollection;
-            arrshortcut.push(new shortcut(link, name));
-            chrome.storage.local.set({'shortcutcollection': arrshortcut});
+            if(result.shortcutcollection == undefined){
+                let arrshortcut = [];
+                arrshortcut.push(new shortcut(link,name));
+                chrome.storage.local.set({'shortcutcollection': arrshortcut});
+            }
+            else{
+                let arrshortcut = result.shortcutcollection;
+                arrshortcut.push(new shortcut(link, name));
+                chrome.storage.local.set({'shortcutcollection': arrshortcut});
+            }
         });
 
         let scwrapper = document.getElementById("shortcutboxwrapper");
@@ -187,6 +193,7 @@ function addTile(url, name){
     shortcutbox.ondragstart = dragStart;
     shortcutbox.ondrop = drop;
     shortcutbox.ondragover = dragover;
+    shortcutbox.id = url;
 
     shortcutlinkwrapper.className = "shortcutlinkwrapper";
 
@@ -231,16 +238,18 @@ function setShortcutboxes(){
     });
 }
 
-function dragStart(ele){
-    ele.dataTransfer.setData("text/plain", ele.target.id);
-    ele.dataTransfer.dropEffect = "copy";
-    console.log(ele);
+
+//Nochmal nachgucken Koord vergleichen
+function dragStart(ev){
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+    ev.dataTransfer.dropEffect = "copy";
 }
 
-function drop(ele){
-    ele.preventDefault();
-    var draggableId = ele.dataTransfer.getData("text");
-    var droppable = ele.currentTarget;
+function drop(ev){
+    console.log(ev.dataTransfer);
+    ev.preventDefault();
+    var draggableId = ev.dataTransfer.getData("text");
+    var droppable = ev.currentTarget;
     var draggable = document.getElementById(draggableId);
     var droppableArea = window.getComputedStyle(droppable).gridArea;
     var draggableArea = window.getComputedStyle(draggable).gridArea;
@@ -248,6 +257,6 @@ function drop(ele){
     droppable.style.gridArea = draggableArea;
 }
 
-function dragover(ele){
-    ele.preventDefault();
+function dragover(ev){
+    ev.preventDefault();
 }
