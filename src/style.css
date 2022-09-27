@@ -170,6 +170,7 @@ body{
     padding-top: 4px;
     text-align: center;
     font-weight: bold;
+    color: white;
 }
 
 
@@ -240,4 +241,24 @@ background-color: #1a82f7;
 
 [draggable=true] {
     cursor: move;
-}  
+}
+
+
+#settingsbutton button:hover{
+    background-color: rgba(215,212,220,1);
+}
+#settingsbutton button{
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    margin: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+#settingsbutton > *{
+    color: white;
+    font-size: 25px;
+}
