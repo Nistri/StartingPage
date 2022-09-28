@@ -33,5 +33,5 @@
 
 #shortcutsettings{
     display: grid;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: 9fr 1fr;
 }

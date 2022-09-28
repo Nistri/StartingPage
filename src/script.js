@@ -81,10 +81,19 @@ document.getElementById("add").addEventListener("click",openCreateShortcutbox);
 function openCreateShortcutbox(){
     let shortcutboxinput = document.getElementById("shortcutboxinput");
     shortcutboxinput.style.visibility = "visible";
+    let arr = document.getElementsByClassName("penbutton");
+    for(let ele of arr){
+        ele.style.visibility = "hidden";
+    }
+    arr = document.getElementsByClassName("fa-solid fa-pen pen");
+    for(let ele of arr){
+        ele.style.visibility = "hidden";
+    }
 }
 
 document.getElementById("createinput").addEventListener("click", createShortcutbox);
 function createShortcutbox(){
+
     let name = document.getElementById("name").value;
     let link = document.getElementById("link").value;
     if(name.trim().length !== 0 && link.trim().length !== 0){
@@ -111,6 +120,14 @@ document.getElementById("cancelinput").addEventListener("click", closeInput);
 function closeInput(){
     document.getElementById("name").value = "";
     document.getElementById("link").value = "";
+    let arr = document.getElementsByClassName("penbutton");
+    for(let ele of arr){
+        ele.style.visibility = "visible";
+    }
+    arr = document.getElementsByClassName("fa-solid fa-pen pen");
+    for(let ele of arr){
+        ele.style.visibility = "visible";
+    }
     document.getElementById("shortcutboxinput").style.visibility = "hidden";
 }
 
@@ -118,8 +135,14 @@ function closeInput(){
 //#########################################################################################
 // Modify Shortcutbox
 function changeShortcutboxesOpen(event){
-    event.path[0].style.visibility = "hidden";
-    event.path[1].style.visibility = "hidden";
+    let arr = document.getElementsByClassName("penbutton");
+    for(let ele of arr){
+        ele.style.visibility = "hidden";
+    }
+    arr = document.getElementsByClassName("fa-solid fa-pen pen");
+    for(let ele of arr){
+        ele.style.visibility = "hidden";
+    }
     var p = 0;
     if(event.path.length === 10)
         p = 2;
@@ -137,7 +160,6 @@ function changeShortcutboxesOpen(event){
     function changechangeshortcutboxes(){
         let name = document.getElementById("namechange").value;
         let link = document.getElementById("linkchange").value;
-
 
         chrome.storage.local.get(['shortcutcollection'], function(result) {
             let arrshortcut = result.shortcutcollection;

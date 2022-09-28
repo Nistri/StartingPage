@@ -259,10 +259,10 @@ background-color: #1a82f7;
     border-radius: 10px;
     background-color: rgba(215,212,220,0.7);
     position: absolute;
-    top: 50px;
+    bottom: 20%;
     right: 0px;
     margin: 20px;
-    height: 80%;
+    height: 60%;   
     width: 17%;
     padding-bottom: 20px;
 }
