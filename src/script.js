@@ -212,6 +212,7 @@ function cancelchangeshortcutboxes(){
 document.getElementById("settingsbutton").addEventListener("click", openSettingsBox);
 function openSettingsBox(){
     document.getElementById("shortcutsettings").style.visibility = "visible";
+    //Radial linear gradient css
 }
 
 document.getElementById("closesettings").addEventListener("click", closeSettingsbox);
