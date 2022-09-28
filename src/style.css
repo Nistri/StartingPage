@@ -93,7 +93,7 @@ body{
 
 
 .shortcutbox:hover, .shortcutbox:focus{
-    background: rgba(243, 226, 226, 0.7);
+    background: rgba(243, 226, 226, 0.4);
 }
 
 
@@ -170,7 +170,7 @@ body{
     padding-top: 4px;
     text-align: center;
     font-weight: bold;
-    color: white;
+    color: rgb(239, 239, 239);
 }
 
 
@@ -187,9 +187,6 @@ body{
     border-radius: 10px;
     border-style: none;
     background-color: #919195;
-
-    display:grid;
-    grid-template-rows: 110px 110px auto;
   }
   
 .shortcutinputdiv > div{
@@ -212,9 +209,9 @@ body{
 .shortcutinputdiv > * > button{
     padding: 10px;
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 20px;
     border-style: none;
-    color: white;
+    color: rgb(239, 239, 239);
 }
 
 #cancelinput{
@@ -239,15 +236,11 @@ body{
 background-color: #1a82f7;
 }
 
-[draggable=true] {
-    cursor: move;
+#settingsbutton:hover{
+    background-color: rgba(215,212,220,0.4);
 }
 
-
-#settingsbutton button:hover{
-    background-color: rgba(215,212,220,1);
-}
-#settingsbutton button{
+#settingsbutton{
     border-radius: 10px;
     position: fixed;
     bottom: 0;
@@ -256,9 +249,34 @@ background-color: #1a82f7;
     margin: 20px;
     background-color: transparent;
     border: none;
-}
-
-#settingsbutton > *{
     color: white;
     font-size: 25px;
+}
+
+
+/* shortcutsettings */
+#shortcutsettings{
+    border-radius: 10px;
+    background-color: rgba(215,212,220,0.7);
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    margin: 20px;
+    height: 80%;
+    width: 17%;
+    padding-bottom: 20px;
+}
+
+#closesettings{
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 20px;
+    border-style: none;
+    color: rgb(239, 239, 239);
+    background-color: #1a82f7;
+}
+
+#shortcutsettings > *{
+    place-self: end center;
 }

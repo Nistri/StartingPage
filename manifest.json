@@ -6,7 +6,9 @@
   "version": "1.0",
   
   "permissions": [
-    "storage"
+    "storage",
+    "search",
+    "wallpaper"
   ],
 
   "chrome_url_overrides" : {

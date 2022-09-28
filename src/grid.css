@@ -1,7 +1,7 @@
 #wrapper{
     padding-top: 10%;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr;
     grid-template-rows: 125px 60px auto;
     gap: 50px;
     grid-template-areas:
@@ -24,4 +24,14 @@
     grid-template-columns: repeat(auto-fit, 8em);
     justify-content: space-around;
     gap: 10px;
+}
+
+.shortcutinputdiv{
+    display:grid;
+    grid-template-rows: 110px 110px auto;
+}
+
+#shortcutsettings{
+    display: grid;
+    grid-template-rows: 4fr 1fr;
 }

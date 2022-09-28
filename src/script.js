@@ -7,7 +7,6 @@ class shortcut{
 }
 
 
-setShortcutboxes();
 //Test AA
 //chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
@@ -21,6 +20,7 @@ arrshortcut.push(new shortcut("ebay.de", "Ebay"));
 chrome.storage.local.set({'shortcutcollection': arrshortcut});
 */
 
+setShortcutboxes();
 
 //Add Enter and Escape Keys to some  
 document.getElementById("inputsearch").addEventListener("keypress", touchHandler);
@@ -58,10 +58,8 @@ function touchHandler(event){
 document.getElementById("searchbutton").addEventListener("click",search);
 function search(){
     if(inputsearch.value != ""){
-        //let search = document.getElementById("inputsearch").value;
-        let url ='https://www.google.com/search?q=' + inputsearch.value;    
-        window.open(url,'_self');
-        input.value = "";
+        chrome.search.query({text:inputsearch.value});
+        inputsearch.value = "";
     }
 }
 
@@ -120,6 +118,8 @@ function closeInput(){
 //#########################################################################################
 // Modify Shortcutbox
 function changeShortcutboxesOpen(event){
+    event.path[0].style.visibility = "hidden";
+    event.path[1].style.visibility = "hidden";
     var p = 0;
     if(event.path.length === 10)
         p = 2;
@@ -174,8 +174,29 @@ function changeShortcutboxesOpen(event){
 
 document.getElementById("cancelchange").addEventListener("click", cancelchangeshortcutboxes);
 function cancelchangeshortcutboxes(){
+    let arr = document.getElementsByClassName("penbutton");
+    for(let ele of arr){
+        ele.style.visibility = "visible";
+    }
+    arr = document.getElementsByClassName("fa-solid fa-pen pen");
+    for(let ele of arr){
+        ele.style.visibility = "visible";
+    }
     let shortcutboxchange = document.getElementById("shortcutboxchange").style.visibility = "hidden";
 }
+
+//#########################################################################################
+// Show Settingsbox
+document.getElementById("settingsbutton").addEventListener("click", openSettingsBox);
+function openSettingsBox(){
+    document.getElementById("shortcutsettings").style.visibility = "visible";
+}
+
+document.getElementById("closesettings").addEventListener("click", closeSettingsbox);
+function closeSettingsbox(){
+    document.getElementById("shortcutsettings").style.visibility = "hidden";
+}
+
 
 
 //Addtile function
@@ -189,11 +210,6 @@ function addTile(url, name){
         let shortcutunder = document.createElement("div");
 
     shortcutbox.className = "shortcutbox";
-    shortcutbox.draggable = true;
-    shortcutbox.ondragstart = dragStart;
-    shortcutbox.ondrop = drop;
-    shortcutbox.ondragover = dragover;
-    shortcutbox.id = url;
 
     shortcutlinkwrapper.className = "shortcutlinkwrapper";
 
@@ -236,27 +252,4 @@ function setShortcutboxes(){
             console.log(e);
         }
     });
-}
-
-
-//Nochmal nachgucken Koord vergleichen
-function dragStart(ev){
-    ev.dataTransfer.setData("text/plain", ev.target.id);
-    ev.dataTransfer.dropEffect = "copy";
-}
-
-function drop(ev){
-    console.log(ev.dataTransfer);
-    ev.preventDefault();
-    var draggableId = ev.dataTransfer.getData("text");
-    var droppable = ev.currentTarget;
-    var draggable = document.getElementById(draggableId);
-    var droppableArea = window.getComputedStyle(droppable).gridArea;
-    var draggableArea = window.getComputedStyle(draggable).gridArea;
-    draggable.style.gridArea = droppableArea;
-    droppable.style.gridArea = draggableArea;
-}
-
-function dragover(ev){
-    ev.preventDefault();
 }
