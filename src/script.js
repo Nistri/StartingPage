@@ -1,3 +1,15 @@
+/* 
+https://stackoverflow.com/questions/5102878/where-is-the-documentation-for-the-google-suggest-api
+https://www.google.de/search?q=google+search+api+show+search+recommendations&sxsrf=ALiCzsYr77naaO2jRS5jBr3b1kaoPoXt4g%3A1664790852704&source=hp&ei=RLE6Y-TYKP6Fxc8PvYuH2A4&iflsig=AJiK0e8AAAAAYzq_VI--JdnsjxP_rHrR5ziqDKN5vhk-&oq=Google+search+api+show+search+recom&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAEyBQghEKABOgQIIxAnOgsIABCABBCxAxCDAToICAAQsQMQgwE6CAgAEIAEELEDOgcIABCABBAKOhEILhCABBCxAxCDARDHARDRAzoNCC4QgAQQxwEQ0QMQCjoHCAAQChDLAToFCAAQgAQ6BwgjELECECc6CggAELEDEIMBEAo6BQgAEMsBOgYIABAeEBY6CAgAEB4QCBANOgQIIRAVOggIIRAeEBYQHToHCCEQoAEQClAAWO5XYJZbaAtwAHgAgAF1iAGYGpIBBDM0LjaYAQCgAQE&sclient=gws-wiz
+https://cssgradient.io/swatches/
+https://www.google.com/search?q=CSS+Gradients+curve+&rlz=1C1CHBD_deDE938DE938&sxsrf=ALiCzsaVVmVaaxFS8y7dsz50BohrVd-qQw%3A1664658102892&ei=tqo4Y_2ONp2Xxc8PmZ-3oA4&ved=0ahUKEwj9wZTX9r_6AhWdS_EDHZnPDeQQ4dUDCA4&uact=5&oq=CSS+Gradients+curve+&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEB4QFjIGCAAQHhAWMgYIABAeEBYyBggAEB4QFjIICAAQHhAPEBY6CggAEEcQ1gQQsAM6BwgAELADEEM6DQgAEOQCENYEELADGAE6EgguEMcBENEDEMgDELADEEMYAjoPCC4Q1AIQyAMQsAMQQxgCOgUIABCABDoHCAAQChDLAToFCAAQywE6BQghEKABOgoIABAeEA8QFhAKSgQIQRgASgQIRhgBUNgBWKUiYOgiaAVwAXgAgAFbiAGwBpIBAjExmAEAoAEByAERwAEB2gEGCAEQARgJ2gEGCAIQARgI&sclient=gws-wiz
+https://css-tricks.com/easing-linear-gradients/
+https://stackoverflow.com/questions/45494235/is-it-possible-to-do-a-curved-line-with-css-gradient
+https://meshgradient.in/
+https://unused-css.com/tools/gradient-generator
+*/
+
+
 //Variablen / Class
 class shortcut{
     constructor(link, name){
@@ -9,7 +21,6 @@ class shortcut{
 
 //Test AA
 //chrome.storage.local.get(null, function(data) {console.log(data);});
-/*
 let arrshortcut = [];
 arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
 arrshortcut.push(new shortcut("blog.fefe.de", "Fefe"));
@@ -18,7 +29,7 @@ arrshortcut.push(new shortcut("www.twitch.tv", "Twitch"))
 arrshortcut.push(new shortcut("amazon.de", "Amazon"));
 arrshortcut.push(new shortcut("ebay.de", "Ebay"));
 chrome.storage.local.set({'shortcutcollection': arrshortcut});
-*/
+
 
 setShortcutboxes();
 
@@ -28,7 +39,6 @@ document.getElementById("shortcutboxinput").addEventListener("keyup",touchHandle
 document.getElementById("shortcutboxchange").addEventListener("keyup",touchHandler);
 
 function touchHandler(event){
-    //console.log(event.path);
     if(event.path[0].id === "inputsearch"){
         if (event.key === "Enter") {
             search();
@@ -38,9 +48,7 @@ function touchHandler(event){
         if (event.key === "Enter") {
             let name = document.getElementById("name").value;
             let link = document.getElementById("link").value;
-            if(name.trim().length !== 0 && link.trim().length !== 0){
-                createShortcutbox();
-            }
+            document.getElementById("createinput").click();
         }
         if(event.key === "Escape"){
             closeInput();
@@ -57,10 +65,8 @@ function touchHandler(event){
 //SearchButtonFunction
 document.getElementById("searchbutton").addEventListener("click",search);
 function search(){
-    if(inputsearch.value != ""){
-        chrome.search.query({text:inputsearch.value});
-        inputsearch.value = "";
-    }
+    chrome.search.query({text:inputsearch.value});
+    inputsearch.value = "";
 }
 
 
@@ -93,7 +99,6 @@ function openCreateShortcutbox(){
 
 document.getElementById("createinput").addEventListener("click", createShortcutbox);
 function createShortcutbox(){
-
     let name = document.getElementById("name").value;
     let link = document.getElementById("link").value;
     if(name.trim().length !== 0 && link.trim().length !== 0){
@@ -172,8 +177,8 @@ function changeShortcutboxesOpen(event){
             });
             chrome.storage.local.set({'shortcutcollection': arrshortcut});
         });
-        //Reload Window
-        window.location.reload();
+        //Reload Website
+        //window.location.reload();
     }
 
     // Delete Shortcutboxes
@@ -189,7 +194,7 @@ function changeShortcutboxesOpen(event){
             chrome.storage.local.set({'shortcutcollection': arrshortcut});
         });
         //Reload Website
-        window.location.reload();
+        //window.location.reload();
     }
 
 }
@@ -224,6 +229,10 @@ function closeSettingsbox(){
 
 //Addtile function
 function addTile(url, name){
+    let link = url;
+    if(!url.includes("http://")){
+        link = "https://" + url;    
+    }
     let shortcutbox = document.createElement("center");
         let penbutton = document.createElement("button");
             let pen = document.createElement("i");
@@ -242,10 +251,10 @@ function addTile(url, name){
     pen.className = "fa-solid fa-pen pen";
 
     shortcutlink.className = "shortcutlink";
-    shortcutlink.href = "https://" + url;
+    shortcutlink.href = link;
     
     shortcuticon.className = "shortcuticon";
-    shortcuticon.style.backgroundImage = "url(https://s2.googleusercontent.com/s2/favicons??sz=128&domain="+url+")";
+    shortcuticon.style.backgroundImage = "url(https://s2.googleusercontent.com/s2/favicons??sz=128&domain="+link+")";
     
 
     shortcutunder.className = "shortcutunder";

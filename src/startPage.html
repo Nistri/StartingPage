@@ -7,90 +7,93 @@
         <link rel="stylesheet" href="/src/fontawesome/css/all.min.css">
     </head>
     <body>
-    <div>
-        <button id="settingsbutton">
-            <i class="fa-solid fa-sliders"></i>
-        </button>
-    </div>
+        <div>
+            <button id="settingsbutton">
+                <i class="fa-solid fa-sliders"></i>
+            </button>
+        </div>
 
-    <div id="shortcutsettings" style="visibility: hidden;">
-        <div id="backgroundcolor">
-            <div class="colorselector">
-                <input type="color" id="firtcolor">
+        <div id="shortcutsettings" style="visibility: hidden;">
+            <div id="backgroundcolor">
+                <div class="colorselector">
+                    <input type="color" id="firtcolor">
+                    <button class="AddColorButton">Add</button>
+                </div>
+                <div class="colorselector">
+                    <input type="color" id="secondcolor">
+                    <button class="AddColorButton">Add</button>
+                </div>
+                <div class="colorselector">
+                    <input type="color" id="thirdcolor">
+                    <button class="AddColorButton">Add</button>
+                </div>
+                <div class="colorselector">
+                    <input type="color" id="forthcolor">
+                    <button class="AddColorButton">Add</button>
+                </div>
             </div>
-            <div class="colorselector">
-                <input type="color" id="secondcolor">
-            </div>
-            <div class="colorselector">
-                <input type="color" id="thirdcolor">
-            </div>
-            <div class="colorselector">
-                <input type="color" id="forthcolor">
-            </div>
+            <button id="closesettings">
+                Close
+            </button>
         </div>
-        <button id="closesettings">
-            Close
-        </button>
-    </div>
-    
-    <div class="shortcutinputdiv" id="shortcutboxinput" style="visibility: hidden;">
-        <div>
-          <label>Name</label>
-          <input type="text" id="name" placeholder="Shortcut Name">
-        </div>
-        <div>
-          <label>Link</label>
-          <input type="url" id="link" placeholder="www.example.com">
-        </div>
-        <div>
-        <button id="cancelinput">
-            Cancel
-        </button>
-        <button id="createinput">
-            Create
-        </button>
-        </div>
-    </div>
-
-    <div class="shortcutinputdiv" id="shortcutboxchange" style="visibility: hidden;">
-        <div>
+        
+        <form class="shortcutinputdiv" id="shortcutboxinput" style="visibility: hidden;">
+            <div>
             <label>Name</label>
-            <input type="text" id="namechange" placeholder="Shortcut Name">
-        </div>
-        <div>
+            <input type="text" id="name" placeholder="Shortcut Name">
+            </div>
+            <div>
             <label>Link</label>
-            <input type="url" id="linkchange" placeholder="www.example.com">
-        </div>
-        <div>
-            <button id="cancelchange">
+            <input type="url" id="link" placeholder="www.example.com" required="true" pattern="*.">
+            </div>
+            <div>
+            <button id="cancelinput" type="button">
                 Cancel
             </button>
-            <button id="changechange">
-                Change
+            <button id="createinput" type="button" >
+                Create
             </button>
-            <button id="deletechange">
-                Delete
-            </button>
-        </div>
-    </div>
+            </div>
+        </form>
 
-    <div id="wrapper">
-
-        <div id="timewrapper">
-            <div id="time"></div>
-            <div id="date"></div>
-        </div>
-
-        <div id="searchwrapper">
-            <div id="searchinput">
-                <button id="searchbutton">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+        <form class="shortcutinputdiv" id="shortcutboxchange" style="visibility: hidden;">
+            <div>
+                <label for="name">Name</label>
+                <input name="name" type="text" id="namechange" placeholder="Shortcut Name" required="true">
+            </div>
+            <div>
+                <label for="link">Link</label>
+                <input name="link" type="url" id="linkchange" placeholder="www.example.com" required="true">
+            </div>
+            <div>
+                <button id="cancelchange" type="button">
+                    Cancel
                 </button>
-                <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
-            </div>  
-        </div>
+                <button id="changechange" type="submit">
+                    Change
+                </button>
+                <button id="deletechange" type="button">
+                    Delete
+                </button>
+            </div>
+        </form>
 
-        <div id="shortcutboxwrapper">
+        <div id="wrapper">
+
+            <div id="timewrapper">
+                <div id="time"></div>
+                <div id="date"></div>
+            </div>
+
+            <div id="searchwrapper">
+                <form id="searchinput">
+                    <button id="searchbutton">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="true"  type="text">
+                </form>  
+            </div>
+            <div id="shortcutboxwrapper">
                 <center class="shortcutbox">
                     <div class="shortcutlinkwrapper">
                         <button class="shortcutlink" id="add">
@@ -100,8 +103,7 @@
                     <div class="shortcutunder">Add Shortcut</div>
                 </center>
             </div>
-    
-    </div>
+        </div>
     </body>
     <script src="script.js"></script>
 </html>
