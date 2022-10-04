@@ -1,3 +1,9 @@
+/*
+http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/tutorials/WieDiss-2.pdf
+https://karpathy.medium.com/
+http://karpathy.github.io/
+*/
+
 /* 
 https://stackoverflow.com/questions/5102878/where-is-the-documentation-for-the-google-suggest-api
 https://www.google.de/search?q=google+search+api+show+search+recommendations&sxsrf=ALiCzsYr77naaO2jRS5jBr3b1kaoPoXt4g%3A1664790852704&source=hp&ei=RLE6Y-TYKP6Fxc8PvYuH2A4&iflsig=AJiK0e8AAAAAYzq_VI--JdnsjxP_rHrR5ziqDKN5vhk-&oq=Google+search+api+show+search+recom&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAEyBQghEKABOgQIIxAnOgsIABCABBCxAxCDAToICAAQsQMQgwE6CAgAEIAEELEDOgcIABCABBAKOhEILhCABBCxAxCDARDHARDRAzoNCC4QgAQQxwEQ0QMQCjoHCAAQChDLAToFCAAQgAQ6BwgjELECECc6CggAELEDEIMBEAo6BQgAEMsBOgYIABAeEBY6CAgAEB4QCBANOgQIIRAVOggIIRAeEBYQHToHCCEQoAEQClAAWO5XYJZbaAtwAHgAgAF1iAGYGpIBBDM0LjaYAQCgAQE&sclient=gws-wiz
@@ -21,6 +27,7 @@ class shortcut{
 
 //Test AA
 //chrome.storage.local.get(null, function(data) {console.log(data);});
+/*
 let arrshortcut = [];
 arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
 arrshortcut.push(new shortcut("blog.fefe.de", "Fefe"));
@@ -29,7 +36,7 @@ arrshortcut.push(new shortcut("www.twitch.tv", "Twitch"))
 arrshortcut.push(new shortcut("amazon.de", "Amazon"));
 arrshortcut.push(new shortcut("ebay.de", "Ebay"));
 chrome.storage.local.set({'shortcutcollection': arrshortcut});
-
+*/
 
 setShortcutboxes();
 
