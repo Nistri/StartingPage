@@ -16,6 +16,13 @@ https://unused-css.com/tools/gradient-generator
 */
 
 
+
+/*
+https://stackoverflow.com/questions/32935435/use-div-as-radio-button
+
+*/
+
+
 //Variablen / Class
 class shortcut{
     constructor(link, name){
@@ -41,33 +48,29 @@ chrome.storage.local.set({'shortcutcollection': arrshortcut});
 setShortcutboxes();
 
 //Add Enter and Escape Keys to some  
-document.getElementById("inputsearch").addEventListener("keypress", touchHandler);
-document.getElementById("shortcutboxinput").addEventListener("keyup",touchHandler);
-document.getElementById("shortcutboxchange").addEventListener("keyup",touchHandler);
-
-function touchHandler(event){
-    if(event.path[0].id === "inputsearch"){
-        if (event.key === "Enter") {
-            search();
-        }
-    }
-    else if(event.path[0].id === "name" || event.path[0].id === "link"){
-        if (event.key === "Enter") {
-            let name = document.getElementById("name").value;
-            let link = document.getElementById("link").value;
-            document.getElementById("createinput").click();
-        }
-        if(event.key === "Escape"){
-            closeInput();
-        }
-    }
-    else if(event.path[0].id === "namechange" || event.path[0].id === "linkchange"){
-        if(event.key === "Escape"){
-            cancelchangeshortcutboxes();
-        }
-        
+document.querySelector("body").addEventListener("keyup", BodyEscape);
+function BodyEscape(event){
+    if(event.key === "Escape"){
+        document.getElementById("cancelinput").click();
+        document.getElementById("cancelchange").click()
+        document.getElementById("closesettings").click();
     }
 }
+
+document.getElementById("shortcutboxinput").addEventListener("keyup",touchHandlerShortcutboxInput);
+function touchHandlerShortcutboxInput(event){
+    if (event.key === "Enter") {
+            document.getElementById("createinput").click();
+    }
+}
+
+document.getElementById("shortcutboxchange").addEventListener("keyup",touchHandlerShortcutboxChange);
+function touchHandlerShortcutboxChange(event){
+    if (event.key === "Enter") {
+            document.getElementById("changechange").click();
+    }
+}
+
 
 //SearchButtonFunction
 document.getElementById("searchbutton").addEventListener("click",search);
@@ -92,6 +95,8 @@ setInterval(function() {
 // Add Shortcutbox
 document.getElementById("add").addEventListener("click",openCreateShortcutbox);
 function openCreateShortcutbox(){
+    //document.querySelector("body").style.filter = "blur(2px)";
+    document.querySelector("body").classList.add("body");
     let shortcutboxinput = document.getElementById("shortcutboxinput");
     shortcutboxinput.style.visibility = "visible";
     let arr = document.getElementsByClassName("penbutton");
@@ -106,6 +111,7 @@ function openCreateShortcutbox(){
 
 document.getElementById("createinput").addEventListener("click", createShortcutbox);
 function createShortcutbox(){
+    console.log('Hallo');
     let name = document.getElementById("name").value;
     let link = document.getElementById("link").value;
     if(name.trim().length !== 0 && link.trim().length !== 0){
@@ -130,6 +136,8 @@ function createShortcutbox(){
 
 document.getElementById("cancelinput").addEventListener("click", closeInput);
 function closeInput(){
+    //document.querySelector("body").style.filter = "none";
+    document.querySelector("body").classList.remove("body");
     document.getElementById("name").value = "";
     document.getElementById("link").value = "";
     let arr = document.getElementsByClassName("penbutton");
@@ -147,6 +155,8 @@ function closeInput(){
 //#########################################################################################
 // Modify Shortcutbox
 function changeShortcutboxesOpen(event){
+    //document.querySelector("body").style.filter = "blur(2px)";
+    document.querySelector("body").classList.add("body");
     let arr = document.getElementsByClassName("penbutton");
     for(let ele of arr){
         ele.style.visibility = "hidden";
@@ -160,7 +170,7 @@ function changeShortcutboxesOpen(event){
         p = 2;
     else if(event.path.length === 9)
         p = 1;
-
+    //Shortcutlikwrapper
     document.getElementById("namechange").value = (event.path[p].parentElement.children[1].innerText);
     document.getElementById("linkchange").value = (event.path[p].children[0].href).slice(8,-1);
     let shortcutboxchange = document.getElementById("shortcutboxchange");
@@ -185,7 +195,7 @@ function changeShortcutboxesOpen(event){
             chrome.storage.local.set({'shortcutcollection': arrshortcut});
         });
         //Reload Website
-        //window.location.reload();
+        window.location.reload();
     }
 
     // Delete Shortcutboxes
@@ -201,7 +211,7 @@ function changeShortcutboxesOpen(event){
             chrome.storage.local.set({'shortcutcollection': arrshortcut});
         });
         //Reload Website
-        //window.location.reload();
+        window.location.reload();
     }
 
 }
@@ -216,6 +226,8 @@ function cancelchangeshortcutboxes(){
     for(let ele of arr){
         ele.style.visibility = "visible";
     }
+    //document.querySelector("body").style.filter = "none";
+    document.querySelector("body").classList.remove("body");
     let shortcutboxchange = document.getElementById("shortcutboxchange").style.visibility = "hidden";
 }
 
@@ -223,12 +235,14 @@ function cancelchangeshortcutboxes(){
 // Show Settingsbox
 document.getElementById("settingsbutton").addEventListener("click", openSettingsBox);
 function openSettingsBox(){
+    document.querySelector("body").classList.add("body");
     document.getElementById("shortcutsettings").style.visibility = "visible";
     //Radial linear gradient css
 }
 
 document.getElementById("closesettings").addEventListener("click", closeSettingsbox);
 function closeSettingsbox(){
+    document.querySelector("body").classList.remove("body");
     document.getElementById("shortcutsettings").style.visibility = "hidden";
 }
 

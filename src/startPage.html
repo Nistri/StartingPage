@@ -15,23 +15,13 @@
 
         <div id="shortcutsettings" style="visibility: hidden;">
             <div id="backgroundcolor">
-                <div class="colorselector">
-                    <input type="color" id="firtcolor">
-                    <button class="AddColorButton">Add</button>
-                </div>
-                <div class="colorselector">
-                    <input type="color" id="secondcolor">
-                    <button class="AddColorButton">Add</button>
-                </div>
-                <div class="colorselector">
-                    <input type="color" id="thirdcolor">
-                    <button class="AddColorButton">Add</button>
-                </div>
-                <div class="colorselector">
-                    <input type="color" id="forthcolor">
-                    <button class="AddColorButton">Add</button>
-                </div>
+
             </div>
+
+            <div id="backgroundcolorgradient">
+            
+            </div>
+
             <button id="closesettings">
                 Close
             </button>
@@ -39,23 +29,23 @@
         
         <form class="shortcutinputdiv" id="shortcutboxinput" style="visibility: hidden;">
             <div>
-            <label>Name</label>
-            <input type="text" id="name" placeholder="Shortcut Name">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Shortcut Name">
             </div>
             <div>
-            <label>Link</label>
-            <input type="url" id="link" placeholder="www.example.com" required="true" pattern="*.">
+                <label for="link">Link</label>
+                <input type="text" id="link" placeholder="www.example.com" required="true">
             </div>
             <div>
-            <button id="cancelinput" type="button">
-                Cancel
-            </button>
-            <button id="createinput" type="button" >
-                Create
-            </button>
+                <button id="cancelinput" type="button">
+                    Cancel
+                </button>
+                <button id="createinput" type="submit">
+                    Create
+                </button>
             </div>
         </form>
-
+        
         <form class="shortcutinputdiv" id="shortcutboxchange" style="visibility: hidden;">
             <div>
                 <label for="name">Name</label>
@@ -77,7 +67,7 @@
                 </button>
             </div>
         </form>
-
+        
         <div id="wrapper">
 
             <div id="timewrapper">

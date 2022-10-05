@@ -29,23 +29,35 @@ body{
     background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
     */
-    
+    /*
     background-color: #2cbaa9;
     background-image: radial-gradient(at 52% 72%, hsla(231, 87%, 67%, 1) 0, hsla(231, 87%, 67%, 0) 50%),
     radial-gradient(at 12% 92%, hsla(249, 88%, 68%, 1) 0, hsla(249, 88%, 68%, 0) 50%),
     radial-gradient(at 63% 8%, hsla(7, 93%, 64%, 1) 0, hsla(7, 93%, 64%, 0) 50%);
-
-    /*
+    */
+    
     background-color: #2cbaa9;
     background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
     radial-gradient(at 1% 61%, hsla(282, 92%, 58%, 1) 0, hsla(282, 92%, 58%, 0) 50%),
     radial-gradient(at 23% 2%, hsla(289, 86%, 50%, 1) 0, hsla(289, 86%, 50%, 0) 50%);
-    */
     
+    /*
+    background-color: #26004d;
+    background-image: radial-gradient(at 29% 33%, hsla(21, 92%, 62%, 1) 0, hsla(21, 92%, 62%, 0) 50%),
+                    radial-gradient(at 3% 3%, hsla(192, 94%, 55%, 1) 0, hsla(192, 94%, 55%, 0) 50%),
+                    radial-gradient(at 71% 32%, hsla(319, 89%, 53%, 1) 0, hsla(319, 89%, 53%, 0) 50%);
+    */
+    /*
+    background: linear-gradient(11deg, #234e8b 0%, #8231bd 46%, #265698 66%);
+    */
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 13px;
 }
 
+
+.body > *:not(#shortcutsettings, #shortcutboxinput, #shortcutboxchange ){ 
+    filter: blur(5px);
+}
 
 /*  Timefield  */
 #time{
@@ -210,9 +222,10 @@ body{
 
     border-radius: 10px;
     border-style: none;
-    background-color: #919195;
+    z-index: 1;
+    background-color: rgba(166, 166, 166, 1);
   }
-  
+
 .shortcutinputdiv > div{
     place-self: center;
 }
@@ -280,6 +293,7 @@ background-color: #1a82f7;
 
 /* shortcutsettings */
 #shortcutsettings{
+    z-index: 1;
     border-radius: 10px;
     background-color: rgba(215,212,220,0.7);
     position: absolute;
@@ -301,6 +315,28 @@ background-color: #1a82f7;
     background-color: #1a82f7;
 }
 
+/*
 #shortcutsettings > *{
-    place-self: end center;
+    justify-self: center;
+}
+*/
+
+#backgroundcolor{
+    background-color: rgba(228, 223, 238, 0.7);
+    box-shadow: -5px 5px 20px 2px rgba(0,0,0,0.43);
+    border-radius: 20px;
+    border: none;
+    height: 90%;
+    width: 90%;
+    justify-self : center;
+}
+
+#backgroundcolorgradient{
+    background-color: rgba(228, 223, 238, 0.7);
+    box-shadow: -5px 5px 20px 2px rgba(0,0,0,0.43);
+    border-radius: 20px;
+    border: none;
+    height: 90%;
+    width: 90%;
+    justify-self: center;
 }
