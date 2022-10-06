@@ -20,6 +20,10 @@ https://unused-css.com/tools/gradient-generator
 /*
 https://stackoverflow.com/questions/32935435/use-div-as-radio-button
 
+https://docs.keywordtool.io/docs
+https://docs.keywordtool.io/docs/keyword-suggestions-endpoint
+https://www.youtube.com/watch?v=QxMBHi_ZiT8
+https://dev.to/codingnepal/search-bar-with-autocomplete-search-suggestions-in-javascript-32dn
 */
 
 

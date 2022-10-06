@@ -33,9 +33,7 @@
 
 #shortcutsettings{
     display: grid;
-    grid-template-rows: 20% 65% 15%;
-    gap: 20px;
-    align-content: space-between;
+    grid-template-rows: 20% 70% 10%;
 }
 /*
     grid-template-areas:
