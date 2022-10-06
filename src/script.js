@@ -99,7 +99,9 @@ setInterval(function() {
 // Add Shortcutbox
 document.getElementById("add").addEventListener("click",openCreateShortcutbox);
 function openCreateShortcutbox(){
-    //document.querySelector("body").style.filter = "blur(2px)";
+    document.getElementById("shortcutboxchange").style.visibility = "hidden";
+    document.getElementById("shortcutsettings").style.visibility = "hidden";
+
     document.querySelector("body").classList.add("body");
     let shortcutboxinput = document.getElementById("shortcutboxinput");
     shortcutboxinput.style.visibility = "visible";
@@ -159,7 +161,8 @@ function closeInput(){
 //#########################################################################################
 // Modify Shortcutbox
 function changeShortcutboxesOpen(event){
-    //document.querySelector("body").style.filter = "blur(2px)";
+    document.getElementById("shortcutboxinput").style.visibility = "hidden";
+    document.getElementById("shortcutsettings").style.visibility = "hidden";
     document.querySelector("body").classList.add("body");
     let arr = document.getElementsByClassName("penbutton");
     for(let ele of arr){

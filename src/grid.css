@@ -35,22 +35,3 @@
     display: grid;
     grid-template-rows: 20% 70% 10%;
 }
-/*
-    grid-template-areas:
-    "backgroundcolor"
-    "backgroundcolorgradient"
-    "closesettings";
-}
-
-#backgroundcolor{
-    grid-area: backgroundcolor;
-}
-
-#backgroundcolorgradient{
-    grid-area: backgroundcolorgradient;
-}
-
-#closesettings{
-    grid-area:closesettings;
-}
-*/
