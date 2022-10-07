@@ -305,18 +305,6 @@ background-color: #1a82f7;
     padding-bottom: 20px;
 }
 
-#closesettings{
-    width: 90%;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 20px;
-    border-style: none;
-    color: rgb(239, 239, 239);
-    background-color: #1a82f7;
-    justify-self: center;
-    align-self: center;
-}
-
 
 #shortcutsettings > div{
     justify-self: center;
@@ -332,7 +320,7 @@ background-color: #1a82f7;
     padding-bottom: 2px;
 }
 
-#shortcutsettings > div > div > label{
+#shortcutsettings > div > div > div > label{
     font-size: 15px;
     font-weight: 500;
 }
@@ -342,26 +330,49 @@ background-color: #1a82f7;
     height: 90%;
     width: 90%;
     margin-top: 10px;
+}
+
+#backgroundcolor > div > div{
     display: flex;
     flex-direction: column;
-}
 
-#backgroundcolor > div{
-    justify-self: center;
     align-self: center;
-    display: flex;
-}
-
-#backgroundcolor > div > *{
-    justify-self: center;
-    align-self: center;
+    align-items: center;
 }
 
 
 #backgroundcolorgradient{
-    height: 90%;
+    height: 80%;
     width: 90%;
 }
+
+#backgroundcolorgradient > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+#backgroundcolorgradient > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#closesettings{
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 20px;
+    border-style: none;
+    color: rgb(239, 239, 239);
+    background-color: #1a82f7;
+    justify-self: center;
+    align-self: center;
+}
+
 
 input[type=color]{
     background-color: transparent;
