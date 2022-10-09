@@ -80,7 +80,6 @@ function touchHandlerShortcutboxChange(event){
 document.getElementById("searchbutton").addEventListener("click",search);
 function search(){
     chrome.search.query({text:inputsearch.value});
-    inputsearch.value = "";
 }
 
 
@@ -313,3 +312,16 @@ function setShortcutboxes(){
         }
     });
 }
+
+    let angle = document.getElementById("gradienangle");
+    let angleoutput = document.getElementById("gradientanglenumber");
+    angle.addEventListener("input", function(){
+        angleoutput.value = angle.value;
+    });
+    angleoutput.addEventListener("input", function(){
+        if(angleoutput.value > 360)
+            angleoutput.value = 360;
+        if(angleoutput.value < 0)
+            angleoutput.value = 0;
+        angle.value = angleoutput.value;
+    });

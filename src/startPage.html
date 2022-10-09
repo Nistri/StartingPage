@@ -18,7 +18,7 @@
                 <h3>Background Color</h3>
                 <div>
                     <div>
-                        <label for="background">Color</label>
+                        <label class="labelcolor" for="background">Color</label>
                         <input type="color" id="staticcolor" name="background">
                     </div>
                 </div>
@@ -28,20 +28,25 @@
                 <h3>Linear Gradient Background</h3>
                 <div>
                     <div>
-                        <label for="firstgradientcolor">First Color</label>
+                        <label class="labelcolor" for="firstgradientcolor">First Color</label>
                         <input type="color" id="firstgradientcolor" name="firstgradientcolor">
                     </div>
                     <div>
-                        <label for="secondgradientcolor">Second Color</label>
+                        <label class="labelcolor" for="secondgradientcolor">Second Color</label>
                         <input type="color" id="secondgradientcolor" name="secondgradientcolor">
                     </div>
                     <div>
-                        <label for="thirdgradientcolor">Third Color</label>
+                        <label class="labelcolor" for="thirdgradientcolor">Third Color</label>
                         <input type="color" id="thirdgradientcolor" name="thirdgradientcolor">
                     </div>
-                    <div>
-                        <label for="gradientangle">Angle</label>
-                        <input type="range" id="gradienangle" name="gradienangle">
+                    <div>  
+                        <form>
+                            <label class="labelcolor" for="amountRange">Angle</label>
+                            <div>
+                                <input type="range" id="gradienangle" name="amountRange" min="0" max="360" value="0">
+                                <input type="number" id="gradientanglenumber" name="amountInput" min="0" max="360" value="0">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
