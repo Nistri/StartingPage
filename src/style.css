@@ -37,9 +37,10 @@ body{
     */
     
     background-color: #2cbaa9;
-    background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
+    /*background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
     radial-gradient(at 1% 61%, hsla(282, 92%, 58%, 1) 0, hsla(282, 92%, 58%, 0) 50%),
     radial-gradient(at 23% 2%, hsla(289, 86%, 50%, 1) 0, hsla(289, 86%, 50%, 0) 50%);
+    */
     /*
     background-color: #26004d;
     background-image: radial-gradient(at 29% 33%, hsla(21, 92%, 62%, 1) 0, hsla(21, 92%, 62%, 0) 50%),
@@ -302,7 +303,7 @@ background-color: #1a82f7;
     margin: 20px;
     height: 510px;   
     width: 250px;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 
 
@@ -363,10 +364,15 @@ background-color: #1a82f7;
     align-items: center;
 }
 
+#backgroundcolorgradient > div > div > form > div{
+    display: flex;
+    flex-direction: row;
+}
+
+
 #backgroundcolorgradient > div > div > form > div > input[type="number"]{
     width: 44px;
 }
-
 
 
 #closesettings{
@@ -379,6 +385,17 @@ background-color: #1a82f7;
     background-color: #1a82f7;
     justify-self: center;
     align-self: center;
+}
+
+
+.colorfield:hover{
+    border-style: solid;
+    border-color: rgba(26, 130, 247, 0.6);
+}
+
+.selectcolorfield{
+    border-style: solid;
+    border-color: rgba(26, 130, 247, 1) !important;
 }
 
 

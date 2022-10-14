@@ -252,18 +252,42 @@ function closeSettingsbox(){
     document.getElementById("shortcutsettings").style.visibility = "hidden";
 }
 
+//Select Different Background Style
+let backgroundcolordiv = document.getElementById("backgroundcolor");
+let backgroundcolorgradientdiv = document.getElementById("backgroundcolorgradient");
+backgroundcolordiv.addEventListener("click", function(){
+    backgroundcolordiv.classList.add("selectcolorfield");
+    backgroundcolorgradientdiv.classList.remove("selectcolorfield");
+    document.body.style.backgroundColor = document.getElementById("staticcolor").value;
+});
+
+//Set static color as Background color
+let staticcolor = document.getElementById("staticcolor");
+staticcolor.addEventListener("input", function(){
+    document.body.style.backgroundColor = staticcolor.value;
+});
+
+
+backgroundcolorgradientdiv.addEventListener("click", function(){
+    backgroundcolorgradientdiv.classList.add("selectcolorfield");
+    backgroundcolordiv.classList.remove("selectcolorfield");
+});
+
 // Function Settingsbox
 let angle = document.getElementById("gradienangle");
 let angleoutput = document.getElementById("gradientanglenumber");
+
 angle.addEventListener("input", function(){
     angleoutput.value = angle.value;
 });
+
 angleoutput.addEventListener("input", function(){
     if(angleoutput.value > 360)
         angleoutput.value = 360;
-    if(angleoutput.value < 0)
+    else if(angleoutput.value < 0)
         angleoutput.value = 0;
-    angle.value = angleoutput.value;
+    else
+        angle.value = angleoutput.value;
 });
 
 
@@ -272,7 +296,7 @@ angleoutput.addEventListener("input", function(){
 //Addtile function
 function addTile(url, name){
     let link = url;
-    if(!url.includes("http://")){
+    if(!url.includes("https://")){
         link = "https://" + url;    
     }
     let shortcutbox = document.createElement("center");
