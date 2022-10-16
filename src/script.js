@@ -255,26 +255,53 @@ function closeSettingsbox(){
 //Select Different Background Style
 let backgroundcolordiv = document.getElementById("backgroundcolor");
 let backgroundcolorgradientdiv = document.getElementById("backgroundcolorgradient");
+
 backgroundcolordiv.addEventListener("click", function(){
     backgroundcolordiv.classList.add("selectcolorfield");
     backgroundcolorgradientdiv.classList.remove("selectcolorfield");
-    document.body.style.backgroundColor = document.getElementById("staticcolor").value;
+    document.body.style.background = document.getElementById("staticcolor").value;
 });
 
+//#########################################################################################
 //Set static color as Background color
 let staticcolor = document.getElementById("staticcolor");
 staticcolor.addEventListener("input", function(){
-    document.body.style.backgroundColor = staticcolor.value;
+    console.log("11: " + staticcolor.value);
+    document.body.style.background = document.getElementById("staticcolor").value;
+    console.log("22: " + staticcolor.value);
 });
 
-
+//Gradient Color as Background
 backgroundcolorgradientdiv.addEventListener("click", function(){
     backgroundcolorgradientdiv.classList.add("selectcolorfield");
     backgroundcolordiv.classList.remove("selectcolorfield");
+    document.body.style.background  = "linear-gradient(" +
+        document.getElementById("gradientangle").value + "deg, " + 
+        document.getElementById("firstgradientcolor").value + " 0%, " + 
+        document.getElementById("secondgradientcolor").value + " 50%, " + 
+        document.getElementById("thirdgradientcolor").value + " 100%"; 
+
+    //background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+    //document.body.style.background  = document.getElementById("secondgradientcolor").value;
 });
 
+let gradientangle = document.getElementById("staticcolor");
+gradientangle.addEventListener("input", refreshGradient);
+
+let firstgradientcolor = document.getElementById("staticcolor");
+firstgradientcolor.addEventListener("input", refreshGradient);
+
+let secondgradientcolor = document.getElementById("staticcolor");
+secondgradientcolor.addEventListener("input", refreshGradient);
+
+let thirdgradientcolor = document.getElementById("staticcolor");
+thirdgradientcolor.addEventListener("input", refreshGradient);
+
+
+
+
 // Function Settingsbox
-let angle = document.getElementById("gradienangle");
+let angle = document.getElementById("gradientangle");
 let angleoutput = document.getElementById("gradientanglenumber");
 
 angle.addEventListener("input", function(){
@@ -350,4 +377,12 @@ function setShortcutboxes(){
             console.log(e);
         }
     });
+}
+
+function refreshGradient(){
+    document.body.style.background  = "linear-gradient(" +
+        document.getElementById("gradientangle").value + "deg, " + 
+        document.getElementById("firstgradientcolor").value + " 0%, " + 
+        document.getElementById("secondgradientcolor").value + " 50%, " + 
+        document.getElementById("thirdgradientcolor").value + " 100%";
 }

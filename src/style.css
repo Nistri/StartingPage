@@ -36,8 +36,9 @@ body{
     radial-gradient(at 63% 8%, hsla(7, 93%, 64%, 1) 0, hsla(7, 93%, 64%, 0) 50%);
     */
     
-    background-color: #2cbaa9;
-    /*background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
+    /*background-color: #2cbaa9;
+    /*
+    background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
     radial-gradient(at 1% 61%, hsla(282, 92%, 58%, 1) 0, hsla(282, 92%, 58%, 0) 50%),
     radial-gradient(at 23% 2%, hsla(289, 86%, 50%, 1) 0, hsla(289, 86%, 50%, 0) 50%);
     */
@@ -49,7 +50,9 @@ body{
     */
     /*
     background: linear-gradient(11deg, #234e8b 0%, #8231bd 46%, #265698 66%);
+    background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
     */
+    background: #D53131;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 13px;
 }
