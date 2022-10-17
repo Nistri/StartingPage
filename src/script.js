@@ -1,4 +1,5 @@
 /*
+https://www.google.de/search?q=Computer+security+projects+&sxsrf=ALiCzsZU-B2hsuxEjO5xmO0U_wggeHxbpA%3A1665445275159&source=hp&ei=m61EY_3aBpmNi-gP84C3iAE&iflsig=AJiK0e8AAAAAY0S7q4PVDVKcJR4uCVuvGgUM4THsMAsx&ved=0ahUKEwi9lJCQ69b6AhWZxgIHHXPADREQ4dUDCAo&uact=5&oq=Computer+security+projects+&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAEIAEEMsBMggIABCABBDLATIICAAQgAQQywEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECCMQJzoGCCMQJxATOgsIABCABBCxAxCDAToECAAQQzoKCAAQsQMQgwEQQzoRCC4QgAQQsQMQgwEQxwEQ0QM6CgguEMcBENEDEEM6EAgAEIAEEIcCELEDEIMBEBQ6BQgAEIAEOgoIABCABBCHAhAUOgcIIxCxAhAnOhMILhCABBCxAxCDARDHARDRAxAKOg0IABCABBCxAxCDARAKOgcIABCABBAKOg0ILhCABBCxAxCDARAKOgoIABCABBAKEMsBOggIABCABBCxAzoOCAAQgAQQsQMQgwEQyQM6CwguEIAEEMcBEK8BOggIABCABBDJAzoLCAAQgAQQyQMQywE6CAguEIAEEMsBOgkIABAWEB4QyQM6BggAEB4QDToICAAQHhAPEA06CAgAEBYQHhAPOgUIIRCgAToICCEQFhAeEB06BAghEBVQAFibYmDeYmgPcAB4AIABbIgBjBaSAQQzNy4xmAEAoAEB&sclient=gws-wiz
 http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/tutorials/WieDiss-2.pdf
 https://karpathy.medium.com/
 http://karpathy.github.io/
@@ -35,9 +36,16 @@ class shortcut{
     }
 }
 
+class backgroundcolortype{
+    constructor(type, selected, color){
+        this.type = type;
+        this.selected = selected;
+        this.color = color;
+    }
+}
 
 //Test AA
-//chrome.storage.local.get(null, function(data) {console.log(data);});
+chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
 let arrshortcut = [];
 arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
@@ -259,16 +267,30 @@ let backgroundcolorgradientdiv = document.getElementById("backgroundcolorgradien
 backgroundcolordiv.addEventListener("click", function(){
     backgroundcolordiv.classList.add("selectcolorfield");
     backgroundcolorgradientdiv.classList.remove("selectcolorfield");
-    document.body.style.background = document.getElementById("staticcolor").value;
+    let scolor = document.getElementById("staticcolor").value;
+    
+
+    document.body.style.background = scolor;
 });
 
 //#########################################################################################
 //Set static color as Background color
 let staticcolor = document.getElementById("staticcolor");
 staticcolor.addEventListener("input", function(){
-    console.log("11: " + staticcolor.value);
-    document.body.style.background = document.getElementById("staticcolor").value;
-    console.log("22: " + staticcolor.value);
+    let scolor = document.getElementById("staticcolor").value; 
+
+    chrome.storage.local.get(['staticbackground'], function(result) {
+        if(result.staticbackground == undefined){
+            let staticbackgroundcolor = new backgroundcolortype("static", 0, scolor);
+            chrome.storage.local.set({'staticbackground': staticbackgroundcolor});
+        }
+        else{
+            let arrshortcut = result.shortcutcollection;
+            chrome.storage.local.set({'staticbackground': arrshortcut});
+        }
+    });
+
+    document.body.style.background = scolor;
 });
 
 //Gradient Color as Background
@@ -285,22 +307,22 @@ backgroundcolorgradientdiv.addEventListener("click", function(){
     //document.body.style.background  = document.getElementById("secondgradientcolor").value;
 });
 
-let gradientangle = document.getElementById("staticcolor");
+// Input for Gradientparts
+let gradientangle = document.getElementById("gradientangle");
 gradientangle.addEventListener("input", refreshGradient);
 
-let firstgradientcolor = document.getElementById("staticcolor");
+let firstgradientcolor = document.getElementById("firstgradientcolor");
 firstgradientcolor.addEventListener("input", refreshGradient);
 
-let secondgradientcolor = document.getElementById("staticcolor");
+let secondgradientcolor = document.getElementById("secondgradientcolor");
 secondgradientcolor.addEventListener("input", refreshGradient);
 
-let thirdgradientcolor = document.getElementById("staticcolor");
+let thirdgradientcolor = document.getElementById("thirdgradientcolor");
 thirdgradientcolor.addEventListener("input", refreshGradient);
 
 
 
-
-// Function Settingsbox
+// Show Angleoutput in other input field
 let angle = document.getElementById("gradientangle");
 let angleoutput = document.getElementById("gradientanglenumber");
 
@@ -380,6 +402,20 @@ function setShortcutboxes(){
 }
 
 function refreshGradient(){
+    /*
+    chrome.storage.local.get(['shortcutcollection'], function(result) {
+        if(result.shortcutcollection == undefined){
+            let arrshortcut = [];
+            arrshortcut.push(new shortcut(link,name));
+            chrome.storage.local.set({'shortcutcollection': arrshortcut});
+        }
+        else{
+            let arrshortcut = result.shortcutcollection;
+            arrshortcut.push(new shortcut(link, name));
+            chrome.storage.local.set({'shortcutcollection': arrshortcut});
+        }
+    });
+    */
     document.body.style.background  = "linear-gradient(" +
         document.getElementById("gradientangle").value + "deg, " + 
         document.getElementById("firstgradientcolor").value + " 0%, " + 

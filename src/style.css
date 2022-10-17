@@ -248,11 +248,17 @@ body{
 }
 
 .shortcutinputdiv > * > button{
+    box-sizing: border-box;
     padding: 10px;
     font-size: 18px;
+    width: 80px;
     border-radius: 20px;
     border-style: none;
     color: rgb(239, 239, 239);
+}
+
+.shortcutinputdiv > * > button:hover{
+    font-weight: bold;
 }
 
 #cancelinput{
@@ -379,6 +385,7 @@ background-color: #1a82f7;
 
 
 #closesettings{
+    box-sizing: border-box;
     width: 90%;
     padding: 10px;
     font-size: 18px;
@@ -390,6 +397,9 @@ background-color: #1a82f7;
     align-self: center;
 }
 
+#closesettings:hover{
+    font-weight: bold;
+}
 
 .colorfield:hover{
     border-style: solid;
