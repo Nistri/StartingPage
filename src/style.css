@@ -247,18 +247,24 @@ body{
     border-style: none;
 }
 
+.shortcutinputdiv > div:nth-child(3){
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
 .shortcutinputdiv > * > button{
     box-sizing: border-box;
     padding: 10px;
     font-size: 18px;
-    width: 80px;
     border-radius: 20px;
     border-style: none;
     color: rgb(239, 239, 239);
 }
 
 .shortcutinputdiv > * > button:hover{
-    font-weight: bold;
+    opacity: 0.8;
 }
 
 #cancelinput{
@@ -273,14 +279,17 @@ body{
 
 #cancelchange{
     background-color: #555;
+    width: 82px;
 }
 
 #deletechange{
     background-color: red;
+    width: 82px;
 }
 
 #changechange{
-background-color: #1a82f7;
+    background-color: #1a82f7;
+    width: 82px;
 }
 
 #settingsbutton:hover{
@@ -398,7 +407,7 @@ background-color: #1a82f7;
 }
 
 #closesettings:hover{
-    font-weight: bold;
+    opacity: 0.8;
 }
 
 .colorfield:hover{

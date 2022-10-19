@@ -37,15 +37,14 @@ class shortcut{
 }
 
 class backgroundcolortype{
-    constructor(type, selected, color){
-        this.type = type;
+    constructor(selected, color){
         this.selected = selected;
         this.color = color;
     }
 }
 
 //Test AA
-chrome.storage.local.get(null, function(data) {console.log(data);});
+//chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
 let arrshortcut = [];
 arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
@@ -58,7 +57,7 @@ chrome.storage.local.set({'shortcutcollection': arrshortcut});
 */
 
 setShortcutboxes();
-
+setSettingsbox();
 //Add Enter and Escape Keys to some  
 document.querySelector("body").addEventListener("keyup", BodyEscape);
 function BodyEscape(event){
@@ -87,7 +86,8 @@ function touchHandlerShortcutboxChange(event){
 //SearchButtonFunction
 document.getElementById("searchbutton").addEventListener("click",search);
 function search(){
-    chrome.search.query({text:inputsearch.value});
+    console.log("Hallo");
+    //chrome.search.query({text:inputsearch.value} , {disposition:CURRENT_TAB});
 }
 
 
@@ -268,7 +268,15 @@ backgroundcolordiv.addEventListener("click", function(){
     backgroundcolordiv.classList.add("selectcolorfield");
     backgroundcolorgradientdiv.classList.remove("selectcolorfield");
     let scolor = document.getElementById("staticcolor").value;
-    
+
+    chrome.storage.local.set({'staticbackground' : new backgroundcolortype(1,scolor)});
+    chrome.storage.local.get(['gradientbackground'], function(result) {
+        if(result.gradientbackground !== undefined){
+            let gradientbackground = result.gradientbackground;
+            gradientbackground.selected = 0;
+            chrome.storage.local.set({'gradientbackground': gradientbackground});
+        }
+    });
 
     document.body.style.background = scolor;
 });
@@ -279,17 +287,14 @@ let staticcolor = document.getElementById("staticcolor");
 staticcolor.addEventListener("input", function(){
     let scolor = document.getElementById("staticcolor").value; 
 
-    chrome.storage.local.get(['staticbackground'], function(result) {
-        if(result.staticbackground == undefined){
-            let staticbackgroundcolor = new backgroundcolortype("static", 0, scolor);
-            chrome.storage.local.set({'staticbackground': staticbackgroundcolor});
-        }
-        else{
-            let arrshortcut = result.shortcutcollection;
-            chrome.storage.local.set({'staticbackground': arrshortcut});
+    chrome.storage.local.set({'staticbackground' : new backgroundcolortype(1,scolor)});
+    chrome.storage.local.get(['gradientbackground'], function(result) {
+        if(result.gradientbackground !== undefined){
+            let gradientbackground = result.gradientbackground;
+            gradientbackground.selected = 0;
+            chrome.storage.local.set({'gradientbackground': gradientbackground});
         }
     });
-
     document.body.style.background = scolor;
 });
 
@@ -297,6 +302,23 @@ staticcolor.addEventListener("input", function(){
 backgroundcolorgradientdiv.addEventListener("click", function(){
     backgroundcolorgradientdiv.classList.add("selectcolorfield");
     backgroundcolordiv.classList.remove("selectcolorfield");
+
+    chrome.storage.local.set({'gradientbackground' : new backgroundcolortype(1,
+        [
+            document.getElementById("gradientangle").value,
+            document.getElementById("firstgradientcolor").value,
+            document.getElementById("secondgradientcolor").value,
+            document.getElementById("thirdgradientcolor").value,
+        ])});
+
+    chrome.storage.local.get(['staticbackground'], function(result) {
+        if(result.staticbackground !== undefined){
+            let staticbackground = result.staticbackground;
+            staticbackground.selected = 0;
+            chrome.storage.local.set({'staticbackground': staticbackground});
+        }
+    });
+
     document.body.style.background  = "linear-gradient(" +
         document.getElementById("gradientangle").value + "deg, " + 
         document.getElementById("firstgradientcolor").value + " 0%, " + 
@@ -401,21 +423,47 @@ function setShortcutboxes(){
     });
 }
 
-function refreshGradient(){
-    /*
-    chrome.storage.local.get(['shortcutcollection'], function(result) {
-        if(result.shortcutcollection == undefined){
-            let arrshortcut = [];
-            arrshortcut.push(new shortcut(link,name));
-            chrome.storage.local.set({'shortcutcollection': arrshortcut});
-        }
-        else{
-            let arrshortcut = result.shortcutcollection;
-            arrshortcut.push(new shortcut(link, name));
-            chrome.storage.local.set({'shortcutcollection': arrshortcut});
+function setSettingsbox(){
+
+    chrome.storage.local.get(['staticbackground'], function(result) {
+        if(result.staticbackground !== undefined){
+            document.getElementById("staticcolor").value = result.staticbackground.color;
+
+            if(result.staticbackground.selected === 1){
+                document.getElementById("backgroundcolor").classList.add("selectcolorfield");
+                document.body.style.background = document.getElementById("staticcolor").value;
+            }
         }
     });
-    */
+
+    chrome.storage.local.get(['gradientbackground'], function(result) {
+        if(result.gradientbackground !== undefined){
+            document.getElementById("gradientangle").value = result.gradientbackground.color[0];
+            document.getElementById("firstgradientcolor").value = result.gradientbackground.color[1];
+            document.getElementById("secondgradientcolor").value = result.gradientbackground.color[2];
+            document.getElementById("thirdgradientcolor").value = result.gradientbackground.color[3];
+
+            if(result.gradientbackground.selected === 1){
+            document.getElementById("backgroundcolorgradient").classList.add("selectcolorfield");
+                document.body.style.background  = "linear-gradient(" +
+                document.getElementById("gradientangle").value + "deg, " + 
+                document.getElementById("firstgradientcolor").value + " 0%, " + 
+                document.getElementById("secondgradientcolor").value + " 50%, " + 
+                document.getElementById("thirdgradientcolor").value + " 100%";
+            }
+        }
+    });
+
+}
+
+function refreshGradient(){
+    chrome.storage.local.set({'gradientbackground' : new backgroundcolortype(1,
+        [
+            document.getElementById("gradientangle").value,
+            document.getElementById("firstgradientcolor").value,
+            document.getElementById("secondgradientcolor").value,
+            document.getElementById("thirdgradientcolor").value,
+        ])});
     document.body.style.background  = "linear-gradient(" +
         document.getElementById("gradientangle").value + "deg, " + 
         document.getElementById("firstgradientcolor").value + " 0%, " + 
