@@ -57,7 +57,7 @@
         <form class="shortcutinputdiv" id="shortcutboxinput" style="visibility: hidden;">
             <div>
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Shortcut Name">
+                <input type="text" id="name" placeholder="Shortcut Name" required="true">
             </div>
             <div>
                 <label for="link">Link</label>
@@ -80,7 +80,7 @@
             </div>
             <div>
                 <label for="link">Link</label>
-                <input name="link" type="url" id="linkchange" placeholder="www.example.com" required="true">
+                <input name="link" type="text" id="linkchange" placeholder="www.example.com" required="true">
             </div>
             <div>
                 <button id="cancelchange" type="button">
@@ -107,7 +107,7 @@
                     <button id="searchbutton">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="true"  type="text">
+                    <input autofocus autocomplete="on" id="inputsearch" placeholder="Search the web" type="text" required="true">
                 </form>  
             </div>
             <div id="shortcutboxwrapper">
@@ -124,11 +124,3 @@
     </body>
     <script src="script.js"></script>
 </html>
-
-
-
-
-<!--
-<input autofocus autocomplete="on" id="inputsearch" name="q" placeholder="Search the web" required="required"  type="text">
-<button class="button" type="submit">Suchen</button>
--->

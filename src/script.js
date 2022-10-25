@@ -1,33 +1,3 @@
-/*
-https://www.google.de/search?q=Computer+security+projects+&sxsrf=ALiCzsZU-B2hsuxEjO5xmO0U_wggeHxbpA%3A1665445275159&source=hp&ei=m61EY_3aBpmNi-gP84C3iAE&iflsig=AJiK0e8AAAAAY0S7q4PVDVKcJR4uCVuvGgUM4THsMAsx&ved=0ahUKEwi9lJCQ69b6AhWZxgIHHXPADREQ4dUDCAo&uact=5&oq=Computer+security+projects+&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAEIAEEMsBMggIABCABBDLATIICAAQgAQQywEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjoECCMQJzoGCCMQJxATOgsIABCABBCxAxCDAToECAAQQzoKCAAQsQMQgwEQQzoRCC4QgAQQsQMQgwEQxwEQ0QM6CgguEMcBENEDEEM6EAgAEIAEEIcCELEDEIMBEBQ6BQgAEIAEOgoIABCABBCHAhAUOgcIIxCxAhAnOhMILhCABBCxAxCDARDHARDRAxAKOg0IABCABBCxAxCDARAKOgcIABCABBAKOg0ILhCABBCxAxCDARAKOgoIABCABBAKEMsBOggIABCABBCxAzoOCAAQgAQQsQMQgwEQyQM6CwguEIAEEMcBEK8BOggIABCABBDJAzoLCAAQgAQQyQMQywE6CAguEIAEEMsBOgkIABAWEB4QyQM6BggAEB4QDToICAAQHhAPEA06CAgAEBYQHhAPOgUIIRCgAToICCEQFhAeEB06BAghEBVQAFibYmDeYmgPcAB4AIABbIgBjBaSAQQzNy4xmAEAoAEB&sclient=gws-wiz
-http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/tutorials/WieDiss-2.pdf
-https://karpathy.medium.com/
-http://karpathy.github.io/
-*/
-
-/* 
-https://stackoverflow.com/questions/5102878/where-is-the-documentation-for-the-google-suggest-api
-https://www.google.de/search?q=google+search+api+show+search+recommendations&sxsrf=ALiCzsYr77naaO2jRS5jBr3b1kaoPoXt4g%3A1664790852704&source=hp&ei=RLE6Y-TYKP6Fxc8PvYuH2A4&iflsig=AJiK0e8AAAAAYzq_VI--JdnsjxP_rHrR5ziqDKN5vhk-&oq=Google+search+api+show+search+recom&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAEyBQghEKABOgQIIxAnOgsIABCABBCxAxCDAToICAAQsQMQgwE6CAgAEIAEELEDOgcIABCABBAKOhEILhCABBCxAxCDARDHARDRAzoNCC4QgAQQxwEQ0QMQCjoHCAAQChDLAToFCAAQgAQ6BwgjELECECc6CggAELEDEIMBEAo6BQgAEMsBOgYIABAeEBY6CAgAEB4QCBANOgQIIRAVOggIIRAeEBYQHToHCCEQoAEQClAAWO5XYJZbaAtwAHgAgAF1iAGYGpIBBDM0LjaYAQCgAQE&sclient=gws-wiz
-https://cssgradient.io/swatches/
-https://www.google.com/search?q=CSS+Gradients+curve+&rlz=1C1CHBD_deDE938DE938&sxsrf=ALiCzsaVVmVaaxFS8y7dsz50BohrVd-qQw%3A1664658102892&ei=tqo4Y_2ONp2Xxc8PmZ-3oA4&ved=0ahUKEwj9wZTX9r_6AhWdS_EDHZnPDeQQ4dUDCA4&uact=5&oq=CSS+Gradients+curve+&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEB4QFjIGCAAQHhAWMgYIABAeEBYyBggAEB4QFjIICAAQHhAPEBY6CggAEEcQ1gQQsAM6BwgAELADEEM6DQgAEOQCENYEELADGAE6EgguEMcBENEDEMgDELADEEMYAjoPCC4Q1AIQyAMQsAMQQxgCOgUIABCABDoHCAAQChDLAToFCAAQywE6BQghEKABOgoIABAeEA8QFhAKSgQIQRgASgQIRhgBUNgBWKUiYOgiaAVwAXgAgAFbiAGwBpIBAjExmAEAoAEByAERwAEB2gEGCAEQARgJ2gEGCAIQARgI&sclient=gws-wiz
-https://css-tricks.com/easing-linear-gradients/
-https://stackoverflow.com/questions/45494235/is-it-possible-to-do-a-curved-line-with-css-gradient
-https://meshgradient.in/
-https://unused-css.com/tools/gradient-generator
-*/
-
-
-
-/*
-https://stackoverflow.com/questions/32935435/use-div-as-radio-button
-
-https://docs.keywordtool.io/docs
-https://docs.keywordtool.io/docs/keyword-suggestions-endpoint
-https://www.youtube.com/watch?v=QxMBHi_ZiT8
-https://dev.to/codingnepal/search-bar-with-autocomplete-search-suggestions-in-javascript-32dn
-*/
-
-
 //Variablen / Class
 class shortcut{
     constructor(link, name){
@@ -56,6 +26,7 @@ arrshortcut.push(new shortcut("ebay.de", "Ebay"));
 chrome.storage.local.set({'shortcutcollection': arrshortcut});
 */
 
+
 setShortcutboxes();
 setSettingsbox();
 //Add Enter and Escape Keys to some  
@@ -68,28 +39,30 @@ function BodyEscape(event){
     }
 }
 
-document.getElementById("shortcutboxinput").addEventListener("keyup",touchHandlerShortcutboxInput);
+/*
+document.getElementById("inputsearch").addEventListener("keyup",touchHandlerShortcutboxInput);
 function touchHandlerShortcutboxInput(event){
     if (event.key === "Enter") {
-            document.getElementById("createinput").click();
+        document.getElementById("searchinput").submit();
     }
 }
+*/
 
+/*
 document.getElementById("shortcutboxchange").addEventListener("keyup",touchHandlerShortcutboxChange);
 function touchHandlerShortcutboxChange(event){
     if (event.key === "Enter") {
-            document.getElementById("changechange").click();
+        document.getElementById("changechange").click();
     }
 }
-
+*/
 
 //SearchButtonFunction
-document.getElementById("searchbutton").addEventListener("click",search);
-function search(){
-    console.log("Hallo");
-    //chrome.search.query({text:inputsearch.value} , {disposition:CURRENT_TAB});
+document.getElementById("searchinput").addEventListener("submit",search)
+function search(event){
+    event.preventDefault();
+    chrome.search.query({text:document.getElementById("inputsearch").value});
 }
-
 
 //Fill Time Div
 setInterval(function() {
@@ -122,9 +95,9 @@ function openCreateShortcutbox(){
     }
 }
 
-document.getElementById("createinput").addEventListener("click", createShortcutbox);
-function createShortcutbox(){
-    console.log('Hallo');
+document.getElementById("shortcutboxinput").addEventListener("submit", createShortcutbox);
+function createShortcutbox(event){
+    event.preventDefault();
     let name = document.getElementById("name").value;
     let link = document.getElementById("link").value;
     if(name.trim().length !== 0 && link.trim().length !== 0){
@@ -136,6 +109,12 @@ function createShortcutbox(){
             }
             else{
                 let arrshortcut = result.shortcutcollection;
+                for(let temp of arrshortcut){
+                    if(temp.link === link){
+                        console.log("Halo");
+                        return;
+                    }
+                }
                 arrshortcut.push(new shortcut(link, name));
                 chrome.storage.local.set({'shortcutcollection': arrshortcut});
             }
@@ -149,6 +128,8 @@ function createShortcutbox(){
 
 document.getElementById("cancelinput").addEventListener("click", closeInput);
 function closeInput(){
+    window.location.reload();
+    /*
     //document.querySelector("body").style.filter = "none";
     document.querySelector("body").classList.remove("body");
     document.getElementById("name").value = "";
@@ -162,6 +143,7 @@ function closeInput(){
         ele.style.visibility = "visible";
     }
     document.getElementById("shortcutboxinput").style.visibility = "hidden";
+    */
 }
 
 
@@ -192,7 +174,7 @@ function changeShortcutboxesOpen(event){
     document.getElementById("namechange").focus();
 
     //Change Shortcutboxes
-    document.getElementById("changechange").addEventListener("click", changechangeshortcutboxes);
+    document.getElementById("shortcutboxchange").addEventListener("submit", changechangeshortcutboxes);
     function changechangeshortcutboxes(){
         let name = document.getElementById("namechange").value;
         let link = document.getElementById("linkchange").value;
@@ -232,6 +214,8 @@ function changeShortcutboxesOpen(event){
 
 document.getElementById("cancelchange").addEventListener("click", cancelchangeshortcutboxes);
 function cancelchangeshortcutboxes(){
+    window.location.reload();
+    /*
     let arr = document.getElementsByClassName("penbutton");
     for(let ele of arr){
         ele.style.visibility = "visible";
@@ -243,6 +227,7 @@ function cancelchangeshortcutboxes(){
     //document.querySelector("body").style.filter = "none";
     document.querySelector("body").classList.remove("body");
     let shortcutboxchange = document.getElementById("shortcutboxchange").style.visibility = "hidden";
+    */
 }
 
 //#########################################################################################
@@ -256,8 +241,11 @@ function openSettingsBox(){
 
 document.getElementById("closesettings").addEventListener("click", closeSettingsbox);
 function closeSettingsbox(){
+    window.location.reload();
+    /*
     document.querySelector("body").classList.remove("body");
     document.getElementById("shortcutsettings").style.visibility = "hidden";
+    */
 }
 
 //Select Different Background Style
@@ -453,7 +441,6 @@ function setSettingsbox(){
             }
         }
     });
-
 }
 
 function refreshGradient(){

@@ -20,39 +20,7 @@ body{
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /*
-    background-image: url("../images/Mikael-Gustafsson.jpg");
-    background: #D53131;
-    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
-    background: linear-gradient(90deg, #1CB5E0 0%, #182848 100%);
-    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
-    background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
-    */
-    /*
-    background-color: #2cbaa9;
-    background-image: radial-gradient(at 52% 72%, hsla(231, 87%, 67%, 1) 0, hsla(231, 87%, 67%, 0) 50%),
-    radial-gradient(at 12% 92%, hsla(249, 88%, 68%, 1) 0, hsla(249, 88%, 68%, 0) 50%),
-    radial-gradient(at 63% 8%, hsla(7, 93%, 64%, 1) 0, hsla(7, 93%, 64%, 0) 50%);
-    */
-    
-    /*background-color: #2cbaa9;
-    /*
-    background-image: radial-gradient(at 34% 86%, hsla(214, 93%, 64%, 1) 0, hsla(214, 93%, 64%, 0) 50%),
-    radial-gradient(at 1% 61%, hsla(282, 92%, 58%, 1) 0, hsla(282, 92%, 58%, 0) 50%),
-    radial-gradient(at 23% 2%, hsla(289, 86%, 50%, 1) 0, hsla(289, 86%, 50%, 0) 50%);
-    */
-    /*
-    background-color: #26004d;
-    background-image: radial-gradient(at 29% 33%, hsla(21, 92%, 62%, 1) 0, hsla(21, 92%, 62%, 0) 50%),
-                    radial-gradient(at 3% 3%, hsla(192, 94%, 55%, 1) 0, hsla(192, 94%, 55%, 0) 50%),
-                    radial-gradient(at 71% 32%, hsla(319, 89%, 53%, 1) 0, hsla(319, 89%, 53%, 0) 50%);
-    */
-    /*
-    background: linear-gradient(11deg, #234e8b 0%, #8231bd 46%, #265698 66%);
-    background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
-    */
-    background: #D53131;
+    background: rgb(134,16,142);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 13px;
 }
