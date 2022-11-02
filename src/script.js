@@ -14,7 +14,8 @@ class backgroundcolortype{
 }
 
 //Test AA
-//chrome.storage.local.get(null, function(data) {console.log(data);});
+//chrome.storage.local.clear();
+chrome.storage.local.get(null, function(data) {console.log(data);});
 /*
 let arrshortcut = [];
 arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
@@ -266,6 +267,10 @@ backgroundcolordiv.addEventListener("click", function(){
         }
     });
 
+    document.getElementById("firstpartbackground").style.opacity = 0;
+    document.getElementById("secondpartbackground").style.opacity = 0;
+    document.getElementById("thirdpartbackground").style.opacity = 0; 
+    document.getElementById("fourthpartbackground").style.opacity = 0;
     document.body.style.background = scolor;
 });
 
@@ -283,7 +288,13 @@ staticcolor.addEventListener("input", function(){
             chrome.storage.local.set({'gradientbackground': gradientbackground});
         }
     });
+
+    document.getElementById("firstpartbackground").style.opacity = 0;
+    document.getElementById("secondpartbackground").style.opacity = 0;
+    document.getElementById("thirdpartbackground").style.opacity = 0; 
+    document.getElementById("fourthpartbackground").style.opacity = 0;
     document.body.style.background = scolor;
+
 });
 
 //Gradient Color as Background
@@ -293,10 +304,10 @@ backgroundcolorgradientdiv.addEventListener("click", function(){
 
     chrome.storage.local.set({'gradientbackground' : new backgroundcolortype(1,
         [
-            document.getElementById("gradientangle").value,
             document.getElementById("firstgradientcolor").value,
             document.getElementById("secondgradientcolor").value,
             document.getElementById("thirdgradientcolor").value,
+            document.getElementById("fourthgradientcolor").value,
         ])});
 
     chrome.storage.local.get(['staticbackground'], function(result) {
@@ -307,20 +318,22 @@ backgroundcolorgradientdiv.addEventListener("click", function(){
         }
     });
 
-    document.body.style.background  = "linear-gradient(" +
-        document.getElementById("gradientangle").value + "deg, " + 
-        document.getElementById("firstgradientcolor").value + " 0%, " + 
-        document.getElementById("secondgradientcolor").value + " 50%, " + 
-        document.getElementById("thirdgradientcolor").value + " 100%"; 
+    document.getElementById("firstpartbackground").style.opacity = 1;
+    document.getElementById("secondpartbackground").style.opacity = 1;
+    document.getElementById("thirdpartbackground").style.opacity = 1; 
+    document.getElementById("fourthpartbackground").style.opacity = 1;
 
-    //background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
-    //document.body.style.background  = document.getElementById("secondgradientcolor").value;
+    document.getElementById("firstpartbackground").style.backgroundColor = 
+        document.getElementById("firstgradientcolor").value;
+    document.getElementById("secondpartbackground").style.backgroundColor = 
+        document.getElementById("secondgradientcolor").value;
+    document.getElementById("thirdpartbackground").style.backgroundColor = 
+        document.getElementById("thirdgradientcolor").value;
+    document.getElementById("fourthpartbackground").style.backgroundColor = 
+        document.getElementById("fourthgradientcolor").value;
 });
 
 // Input for Gradientparts
-let gradientangle = document.getElementById("gradientangle");
-gradientangle.addEventListener("input", refreshGradient);
-
 let firstgradientcolor = document.getElementById("firstgradientcolor");
 firstgradientcolor.addEventListener("input", refreshGradient);
 
@@ -330,26 +343,8 @@ secondgradientcolor.addEventListener("input", refreshGradient);
 let thirdgradientcolor = document.getElementById("thirdgradientcolor");
 thirdgradientcolor.addEventListener("input", refreshGradient);
 
-
-
-// Show Angleoutput in other input field
-let angle = document.getElementById("gradientangle");
-let angleoutput = document.getElementById("gradientanglenumber");
-
-angle.addEventListener("input", function(){
-    angleoutput.value = angle.value;
-});
-
-angleoutput.addEventListener("input", function(){
-    if(angleoutput.value > 360)
-        angleoutput.value = 360;
-    else if(angleoutput.value < 0)
-        angleoutput.value = 0;
-    else
-        angle.value = angleoutput.value;
-});
-
-
+let fourthgradientcolor = document.getElementById("fourthgradientcolor");
+fourthgradientcolor.addEventListener("input", refreshGradient);
 
 
 //Addtile function
@@ -419,6 +414,10 @@ function setSettingsbox(){
 
             if(result.staticbackground.selected === 1){
                 document.getElementById("backgroundcolor").classList.add("selectcolorfield");
+                document.getElementById("firstpartbackground").style.opacity = 0;
+                document.getElementById("secondpartbackground").style.opacity = 0;
+                document.getElementById("thirdpartbackground").style.opacity = 0; 
+                document.getElementById("fourthpartbackground").style.opacity = 0;
                 document.body.style.background = document.getElementById("staticcolor").value;
             }
         }
@@ -426,18 +425,27 @@ function setSettingsbox(){
 
     chrome.storage.local.get(['gradientbackground'], function(result) {
         if(result.gradientbackground !== undefined){
-            document.getElementById("gradientangle").value = result.gradientbackground.color[0];
-            document.getElementById("firstgradientcolor").value = result.gradientbackground.color[1];
-            document.getElementById("secondgradientcolor").value = result.gradientbackground.color[2];
-            document.getElementById("thirdgradientcolor").value = result.gradientbackground.color[3];
+            document.getElementById("firstgradientcolor").value = result.gradientbackground.color[0];
+            document.getElementById("secondgradientcolor").value = result.gradientbackground.color[1];
+            document.getElementById("thirdgradientcolor").value = result.gradientbackground.color[2];
+            document.getElementById("fourthgradientcolor").value = result.gradientbackground.color[3];
 
             if(result.gradientbackground.selected === 1){
-            document.getElementById("backgroundcolorgradient").classList.add("selectcolorfield");
-                document.body.style.background  = "linear-gradient(" +
-                document.getElementById("gradientangle").value + "deg, " + 
-                document.getElementById("firstgradientcolor").value + " 0%, " + 
-                document.getElementById("secondgradientcolor").value + " 50%, " + 
-                document.getElementById("thirdgradientcolor").value + " 100%";
+                document.getElementById("backgroundcolorgradient").classList.add("selectcolorfield");
+
+                document.getElementById("firstpartbackground").style.opacity = 1;
+                document.getElementById("secondpartbackground").style.opacity = 1;
+                document.getElementById("thirdpartbackground").style.opacity = 1; 
+                document.getElementById("fourthpartbackground").style.opacity = 1;
+
+                document.getElementById("firstpartbackground").style.backgroundColor = 
+                    document.getElementById("firstgradientcolor").value;
+                document.getElementById("secondpartbackground").style.backgroundColor = 
+                    document.getElementById("secondgradientcolor").value;
+                document.getElementById("thirdpartbackground").style.backgroundColor = 
+                    document.getElementById("thirdgradientcolor").value;
+                document.getElementById("fourthpartbackground").style.backgroundColor = 
+                    document.getElementById("fourthgradientcolor").value;
             }
         }
     });
@@ -446,14 +454,17 @@ function setSettingsbox(){
 function refreshGradient(){
     chrome.storage.local.set({'gradientbackground' : new backgroundcolortype(1,
         [
-            document.getElementById("gradientangle").value,
             document.getElementById("firstgradientcolor").value,
             document.getElementById("secondgradientcolor").value,
             document.getElementById("thirdgradientcolor").value,
+            document.getElementById("fourthgradientcolor").value,
         ])});
-    document.body.style.background  = "linear-gradient(" +
-        document.getElementById("gradientangle").value + "deg, " + 
-        document.getElementById("firstgradientcolor").value + " 0%, " + 
-        document.getElementById("secondgradientcolor").value + " 50%, " + 
-        document.getElementById("thirdgradientcolor").value + " 100%";
+        document.getElementById("firstpartbackground").style.backgroundColor = 
+            document.getElementById("firstgradientcolor").value;
+        document.getElementById("secondpartbackground").style.backgroundColor = 
+            document.getElementById("secondgradientcolor").value;
+        document.getElementById("thirdpartbackground").style.backgroundColor = 
+            document.getElementById("thirdgradientcolor").value;
+        document.getElementById("fourthpartbackground").style.backgroundColor = 
+            document.getElementById("fourthgradientcolor").value;     
 }

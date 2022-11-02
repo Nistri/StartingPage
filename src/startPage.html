@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Momentum</title> 
+        <title>new Tab</title> 
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="grid.css">
         <link rel="stylesheet" href="/src/fontawesome/css/all.min.css">
     </head>
     <body>
+        <div id="firstpartbackground"></div>
+        <div id="secondpartbackground"></div>
+        <div id="thirdpartbackground"></div>
+        <div id="fourthpartbackground"></div>
         <div>
             <button id="settingsbutton">
                 <i class="fa-solid fa-sliders"></i>
@@ -15,7 +19,7 @@
 
         <div id="shortcutsettings" style="visibility: hidden;">
             <div id="backgroundcolor" class="colorfield">
-                <h3>Background Color</h3>
+                <h3>Plain Background</h3>
                 <div>
                     <div>
                         <label class="labelcolor" for="background">Color</label>
@@ -25,7 +29,7 @@
             </div>
 
             <div id="backgroundcolorgradient" class="colorfield">
-                <h3>Linear Gradient Background</h3>
+                <h3>Split Background</h3>
                 <div>
                     <div>
                         <label class="labelcolor" for="firstgradientcolor">First Color</label>
@@ -39,14 +43,9 @@
                         <label class="labelcolor" for="thirdgradientcolor">Third Color</label>
                         <input type="color" id="thirdgradientcolor" name="thirdgradientcolor">
                     </div>
-                    <div>  
-                        <form>
-                            <label class="labelcolor" for="amountRange">Angle</label>
-                            <div>
-                                <input type="range" id="gradientangle" name="amountRange" min="0" max="360" value="0">
-                                <input type="number" id="gradientanglenumber" name="amountInput" min="0" max="360" value="0">
-                            </div>
-                        </form>
+                    <div>
+                        <label class="labelcolor" for="fourthgradientcolor">Fourth Color</label>
+                        <input type="color" id="fourthgradientcolor" name="thirdgradientcolor">
                     </div>
                 </div>
             </div>
