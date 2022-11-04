@@ -13,19 +13,6 @@ class backgroundcolortype{
     }
 }
 
-//Test AA
-//chrome.storage.local.clear();
-chrome.storage.local.get(null, function(data) {console.log(data);});
-/*
-let arrshortcut = [];
-arrshortcut.push(new shortcut("www.youtube.com", "Youtube"));
-arrshortcut.push(new shortcut("blog.fefe.de", "Fefe"));
-arrshortcut.push(new shortcut("www.heise.de", "Heise"));
-arrshortcut.push(new shortcut("www.twitch.tv", "Twitch"))
-arrshortcut.push(new shortcut("amazon.de", "Amazon"));
-arrshortcut.push(new shortcut("ebay.de", "Ebay"));
-chrome.storage.local.set({'shortcutcollection': arrshortcut});
-*/
 
 
 setShortcutboxes();
@@ -39,24 +26,6 @@ function BodyEscape(event){
         document.getElementById("closesettings").click();
     }
 }
-
-/*
-document.getElementById("inputsearch").addEventListener("keyup",touchHandlerShortcutboxInput);
-function touchHandlerShortcutboxInput(event){
-    if (event.key === "Enter") {
-        document.getElementById("searchinput").submit();
-    }
-}
-*/
-
-/*
-document.getElementById("shortcutboxchange").addEventListener("keyup",touchHandlerShortcutboxChange);
-function touchHandlerShortcutboxChange(event){
-    if (event.key === "Enter") {
-        document.getElementById("changechange").click();
-    }
-}
-*/
 
 //SearchButtonFunction
 document.getElementById("searchinput").addEventListener("submit",search)
@@ -130,21 +99,6 @@ function createShortcutbox(event){
 document.getElementById("cancelinput").addEventListener("click", closeInput);
 function closeInput(){
     window.location.reload();
-    /*
-    //document.querySelector("body").style.filter = "none";
-    document.querySelector("body").classList.remove("body");
-    document.getElementById("name").value = "";
-    document.getElementById("link").value = "";
-    let arr = document.getElementsByClassName("penbutton");
-    for(let ele of arr){
-        ele.style.visibility = "visible";
-    }
-    arr = document.getElementsByClassName("fa-solid fa-pen pen");
-    for(let ele of arr){
-        ele.style.visibility = "visible";
-    }
-    document.getElementById("shortcutboxinput").style.visibility = "hidden";
-    */
 }
 
 
@@ -216,19 +170,6 @@ function changeShortcutboxesOpen(event){
 document.getElementById("cancelchange").addEventListener("click", cancelchangeshortcutboxes);
 function cancelchangeshortcutboxes(){
     window.location.reload();
-    /*
-    let arr = document.getElementsByClassName("penbutton");
-    for(let ele of arr){
-        ele.style.visibility = "visible";
-    }
-    arr = document.getElementsByClassName("fa-solid fa-pen pen");
-    for(let ele of arr){
-        ele.style.visibility = "visible";
-    }
-    //document.querySelector("body").style.filter = "none";
-    document.querySelector("body").classList.remove("body");
-    let shortcutboxchange = document.getElementById("shortcutboxchange").style.visibility = "hidden";
-    */
 }
 
 //#########################################################################################
@@ -243,10 +184,6 @@ function openSettingsBox(){
 document.getElementById("closesettings").addEventListener("click", closeSettingsbox);
 function closeSettingsbox(){
     window.location.reload();
-    /*
-    document.querySelector("body").classList.remove("body");
-    document.getElementById("shortcutsettings").style.visibility = "hidden";
-    */
 }
 
 //Select Different Background Style
@@ -266,11 +203,11 @@ backgroundcolordiv.addEventListener("click", function(){
             chrome.storage.local.set({'gradientbackground': gradientbackground});
         }
     });
+    document.getElementById("firstpartbackground").style.backgroundColor = scolor;
+    document.getElementById("secondpartbackground").style.backgroundColor = scolor;
+    document.getElementById("thirdpartbackground").style.backgroundColor = scolor; 
+    document.getElementById("fourthpartbackground").style.backgroundColor = scolor;
 
-    document.getElementById("firstpartbackground").style.opacity = 0;
-    document.getElementById("secondpartbackground").style.opacity = 0;
-    document.getElementById("thirdpartbackground").style.opacity = 0; 
-    document.getElementById("fourthpartbackground").style.opacity = 0;
     document.body.style.background = scolor;
 });
 
@@ -288,11 +225,16 @@ staticcolor.addEventListener("input", function(){
             chrome.storage.local.set({'gradientbackground': gradientbackground});
         }
     });
-
+    /*
     document.getElementById("firstpartbackground").style.opacity = 0;
     document.getElementById("secondpartbackground").style.opacity = 0;
     document.getElementById("thirdpartbackground").style.opacity = 0; 
     document.getElementById("fourthpartbackground").style.opacity = 0;
+    */
+    document.getElementById("firstpartbackground").style.backgroundColor = scolor;
+    document.getElementById("secondpartbackground").style.backgroundColor = scolor;
+    document.getElementById("thirdpartbackground").style.backgroundColor = scolor; 
+    document.getElementById("fourthpartbackground").style.backgroundColor = scolor;
     document.body.style.background = scolor;
 
 });
@@ -317,11 +259,13 @@ backgroundcolorgradientdiv.addEventListener("click", function(){
             chrome.storage.local.set({'staticbackground': staticbackground});
         }
     });
-
+    
+    /*
     document.getElementById("firstpartbackground").style.opacity = 1;
     document.getElementById("secondpartbackground").style.opacity = 1;
     document.getElementById("thirdpartbackground").style.opacity = 1; 
     document.getElementById("fourthpartbackground").style.opacity = 1;
+    */
 
     document.getElementById("firstpartbackground").style.backgroundColor = 
         document.getElementById("firstgradientcolor").value;
@@ -414,10 +358,16 @@ function setSettingsbox(){
 
             if(result.staticbackground.selected === 1){
                 document.getElementById("backgroundcolor").classList.add("selectcolorfield");
+                /*
                 document.getElementById("firstpartbackground").style.opacity = 0;
                 document.getElementById("secondpartbackground").style.opacity = 0;
                 document.getElementById("thirdpartbackground").style.opacity = 0; 
                 document.getElementById("fourthpartbackground").style.opacity = 0;
+                */
+                document.getElementById("firstpartbackground").style.backgroundColor = document.getElementById("staticcolor").value;
+                document.getElementById("secondpartbackground").style.backgroundColor = document.getElementById("staticcolor").value;
+                document.getElementById("thirdpartbackground").style.backgroundColor = document.getElementById("staticcolor").value; 
+                document.getElementById("fourthpartbackground").style.backgroundColor = document.getElementById("staticcolor").value;
                 document.body.style.background = document.getElementById("staticcolor").value;
             }
         }
@@ -432,12 +382,12 @@ function setSettingsbox(){
 
             if(result.gradientbackground.selected === 1){
                 document.getElementById("backgroundcolorgradient").classList.add("selectcolorfield");
-
+                /*
                 document.getElementById("firstpartbackground").style.opacity = 1;
                 document.getElementById("secondpartbackground").style.opacity = 1;
                 document.getElementById("thirdpartbackground").style.opacity = 1; 
                 document.getElementById("fourthpartbackground").style.opacity = 1;
-
+                */
                 document.getElementById("firstpartbackground").style.backgroundColor = 
                     document.getElementById("firstgradientcolor").value;
                 document.getElementById("secondpartbackground").style.backgroundColor = 
@@ -449,6 +399,7 @@ function setSettingsbox(){
             }
         }
     });
+
 }
 
 function refreshGradient(){
