@@ -6,8 +6,7 @@
   
   "permissions": [
     "storage",
-    "search",
-    "background"
+    "search"
   ],
 
   "chrome_url_overrides" : {
